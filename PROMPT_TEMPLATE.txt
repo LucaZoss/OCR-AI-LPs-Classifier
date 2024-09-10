@@ -1,0 +1,412 @@
+"""
+Analyze the album cover image and extract the following information in a structured JSON format:
+
+Artist: The name of the artist or band.
+Album Title: The title of the album.
+Songs: A list of all songs on the album, categorized by side (e.g., 'Side A', 'Side B').
+Editor: The name of the record label, company, or publisher that produced the album.
+Other Info: Any additional relevant information, such as:
+Recording details (e.g., producer, recording studio)
+Catalog number or identification numbers
+Price stickers, conditions, or special notes (e.g., high fidelity, special edition)
+Address or location details of the editor.
+Present all extracted data in the following JSON format:
+{
+  "artist": "Artist Name",
+  "album_title": "Album Title",
+  "songs": {
+    "side_a": ["Song Title 1", "Song Title 2", ...],
+    "side_b": ["Song Title 1", "Song Title 2", ...]
+  },
+  "editor": "Record Label or Publisher",
+  "other_info": {
+    "recording": "Recording details (if available)",
+    "catalog_number": "Catalog number (if available)",
+    "price_sticker": "Price sticker or condition notes (if available)",
+    "location": "Address or location of the editor (if available)"
+  }
+}
+Make sure to accurately extract each detail and categorize the songs properly by side, if indicated on the album cover.
+"""
+
+#####################################################################
+################### EN-PROMPT based on Guidelines ###################
+#####################################################################
+
+"""
+You are tasked with cataloging information from a vinyl record for a digital database. Follow these instructions to extract the relevant details accurately, ensuring correct usage of punctuation and abbreviation rules.
+Do not translate any text; use only the exact information as it appears on the image.
+
+Source of Information: The primary source is the outer sleeve of the vinyl record (front and back). If information is missing or unclear, check the record label or insert booklet if available.
+
+Data to Retrieve:
+
+Title: The main title of the record and any subtitle, if available.
+Artists: Name(s) of the performer(s), band(s), composer(s), or any other contributors mentioned.
+Release Information:
+Edition: Edition or version of the record (e.g., "3rd Edition", "Remastered Version").
+Year: Year of release or production.
+Publisher: Name of the record label or publisher.
+Location: City or country of release or production.
+Track Information:
+For each track on the record, provide:
+Track Title: Name of the track.
+Track Duration: Duration of the track in minutes and seconds.
+Track Artists: Any specific artists or contributors credited for the track.
+Physical Format:
+Medium: Type of record (e.g., "LP 33 RPM", "EP 45 RPM").
+Number of Discs: Total number of discs in the set.
+Condition: Condition of the vinyl (e.g., "Mint", "Good", "Poor").
+Additional Notes:
+Any other relevant information, such as special packaging, limited edition, special features, or collector's notes.
+Punctuation and Abbreviation Rules:
+
+Rules to follow:
+
+Punctuation:
+Use spaces around all punctuation marks, except for commas (,) and periods (.).
+Use square brackets [ ] for uncertain or supplied information (e.g., [Berlin?], [i.e., corrected spelling]).
+Use three dots (…) for omissions in text (e.g., long titles or numerous artists).
+Use a semicolon (;) to separate multiple entries in the same field (e.g., multiple artists).
+Use a dash (–) to indicate a range (e.g., "1950 – 1960").
+Use a slash (/) to separate distinct types of information (e.g., title/responsibility).
+Place a question mark (?) in brackets to indicate uncertainty.
+Abbreviations:
+Use "s.l." (sine loco) when the place of publication is unknown.
+Use "s.n." (sine nomine) when the publisher is unknown.
+Use "et al." to indicate multiple unspecified contributors.
+If there are printing errors, copy them exactly and follow them with [sic] or [i.e. corrected].
+Output Format: Provide the information in a JSON format with the following structure:
+{
+  "title": "Main Title of the Record",
+  "subtitle": "Subtitle of the Record (if any)",
+  "artists": [
+    "Artist Name 1",
+    "Artist Name 2"
+  ],
+  "release_info": {
+    "edition": "Edition or Version",
+    "year": "Release Year",
+    "publisher": "Record Label or Publisher",
+    "location": "City or Country of Release"
+  },
+  "tracks": [
+    {
+      "track_title": "Track 1 Title",
+      "track_duration": "Track 1 Duration",
+      "track_artists": [
+        "Track 1 Artist Name 1",
+        "Track 1 Artist Name 2"
+      ]
+    },
+    {
+      "track_title": "Track 2 Title",
+      "track_duration": "Track 2 Duration",
+      "track_artists": [
+        "Track 2 Artist Name 1",
+        "Track 2 Artist Name 2"
+      ]
+    }
+    // Add more tracks as needed
+  ],
+  "physical_format": {
+    "medium": "Type of Record",
+    "number_of_discs": "Total Number of Discs",
+    "condition": "Condition of the Vinyl"
+  },
+  "additional_notes": "Any other relevant information or special features"
+}
+Follow these rules for punctuation and abbreviation carefully and format the output according to the JSON schema provided.
+"""
+
+
+
+
+
+#####################################################################
+################### FR-PROMPT based on Guidelines ###################
+#####################################################################
+
+Vous êtes chargé de cataloguer les informations d'un disque vinyle pour une base de données numérique. Suivez ces instructions pour extraire les détails pertinents avec précision, en respectant les règles de ponctuation et d'abréviation. **Ne traduisez aucun texte ; utilisez uniquement l’information exacte telle qu’elle apparaît sur l’image.** Notez que la tâche concerne principalement les disques de type **S et LP 33/45 tours**.
+
+1. **Source d'information** : La source principale est la **pochette extérieure** du disque vinyle (recto et verso). Si l’information est manquante ou peu claire, consultez l’**étiquette du disque** ou le **livret inséré** s'il est disponible.
+
+2. **Données à extraire** :
+   - **Titre** : Le titre principal du disque et tout sous-titre, le cas échéant.
+   - **Artistes** : Nom(s) de l'interprète, du groupe, du compositeur ou de tout autre contributeur mentionné.
+   - **Informations de sortie** :
+     - **Édition** : Édition ou version du disque (ex. : "3e Édition", "Version remastérisée").
+     - **Année** : Année de sortie ou de production.
+     - **Éditeur** : Nom du label ou de l’éditeur.
+     - **Lieu** : Ville ou pays de sortie ou de production.
+   - **Informations sur les pistes** :
+     - Pour chaque piste du disque, fournissez :
+       - **Titre de la piste** : Nom de la piste.
+       - **Durée de la piste** : Durée de la piste en minutes et secondes.
+       - **Artistes de la piste** : Artistes ou contributeurs spécifiques crédités pour la piste.
+   - **Format physique** :
+     - **Support** : Type de disque (ex. : "LP 33 tours", "EP 45 tours").
+     - **Nombre de disques** : Nombre total de disques dans l'ensemble.
+     - **État** : État du vinyle (ex. : "Neuf", "Bon", "Mauvais").
+   - **Notes supplémentaires** :
+     - Toute autre information pertinente, comme un emballage spécial, une édition limitée, des caractéristiques spéciales ou des notes de collectionneur.
+
+3. **Règles de ponctuation et d'abréviation** :
+   - **Ponctuation** :
+     - Utilisez des espaces autour de tous les signes de ponctuation, sauf pour les virgules (,) et les points (.).
+     - Utilisez des crochets [ ] pour les informations incertaines ou ajoutées (ex. : [Berlin?], [i.e., orthographe corrigée]).
+     - Utilisez trois points (…) pour signaler des omissions dans le texte (ex. : titres longs ou artistes nombreux).
+     - Utilisez un point-virgule (;) pour séparer plusieurs entrées dans le même champ (ex. : plusieurs artistes).
+     - Utilisez un tiret (–) pour indiquer une plage (ex. : "1950 – 1960").
+     - Utilisez une barre oblique (/) pour séparer des types d'informations distincts (ex. : titre/mention de responsabilité).
+     - Placez un point d'interrogation (?) entre crochets pour indiquer une incertitude.
+   - **Abréviations** :
+     - Utilisez "s.l." (sine loco) lorsque le lieu de publication est inconnu.
+     - Utilisez "s.n." (sine nomine) lorsque l'éditeur est inconnu.
+     - Utilisez "et al." pour indiquer plusieurs contributeurs non spécifiés.
+     - Si des erreurs d'impression sont présentes, recopiez-les telles quelles et ajoutez [sic] ou [i.e. correction].
+
+4. **Règles de traduction et de langue** :
+   - **Ne traduisez pas** le texte. Utilisez uniquement les informations exactes telles qu’elles apparaissent sur l’image.
+   - Maintenez la langue d'origine du texte sur le disque vinyle sans modification.
+
+5. **Format de sortie** : Fournissez les informations au format JSON suivant :
+
+```json
+{
+  "title": "Titre principal du disque",
+  "subtitle": "Sous-titre du disque (si applicable)",
+  "artists": [
+    "Nom de l'artiste 1",
+    "Nom de l'artiste 2"
+  ],
+  "release_info": {
+    "edition": "Édition ou Version",
+    "year": "Année de sortie",
+    "publisher": "Label ou éditeur",
+    "location": "Ville ou pays de sortie"
+  },
+  "tracks": [
+    {
+      "track_title": "Titre de la piste 1",
+      "track_duration": "Durée de la piste 1",
+      "track_artists": [
+        "Nom de l'artiste de la piste 1",
+        "Nom de l'artiste de la piste 2"
+      ]
+    },
+    {
+      "track_title": "Titre de la piste 2",
+      "track_duration": "Durée de la piste 2",
+      "track_artists": [
+        "Nom de l'artiste de la piste 1",
+        "Nom de l'artiste de la piste 2"
+      ]
+    }
+    // Ajoutez plus de pistes si nécessaire
+  ],
+  "physical_format": {
+    "medium": "Type de disque",
+    "number_of_discs": "Nombre total de disques",
+    "condition": "État du vinyle"
+  },
+  "additional_notes": "Toute autre information pertinente ou caractéristique spéciale"
+}
+```
+
+Suivez ces règles avec attention, extrayez uniquement les informations réelles de l’image sans effectuer de traduction, et formatez la sortie conformément au schéma JSON fourni.
+
+#####################################################################
+################### EN-PROMPT_V2 based on Guidelines ################
+#####################################################################
+
+Given this following image of a vinyl record, fetch the following information:
+
+Title : Title of the album, on the front side of the cover
+Subtitle : Subtitle of the album, also on the front side of the cover
+Interpreter/Artist: Main artists, authors, interprete of the piece.
+Edition: Name of the editor usually a corporate
+Edition Number: Number of Edition
+Edition Year
+Production: Name of the producer can be an organisation and/or an individual
+Production Year
+
+Track names: Name of the tracks (Face A and Face B)
+Track lenght: Lenght of the track
+
+Other Information
+
+Please retrieve as an output a csv format.
+DO NOT make up some information, only retrieve the information present on the image, donot translate information.
+If information is not present write NaN.
+
+
+#####################################################################
+################### EN-PROMPT_V3 based on Guidelines ################
+#####################################################################
+'''
+Given the following image of a vinyl record, your task is to extract specific information from the cover and label of the record and provide the output in CSV format.
+
+### Information to Extract:
+
+1. **Title**: The main title of the album, as it appears on the front side of the cover.
+2. **Subtitle**: Any subtitle of the album, also found on the front side of the cover.
+3. **Interpreter/Artist**: The main artists, authors, or interpreters of the album.
+4. **Edition**: The name of the editor, usually a corporate entity.
+5. **Edition Number**: The specific edition number of the album.
+6. **Edition Year**: The year of the album's edition.
+7. **Production**: The name of the producer, which could be an organization and/or an individual.
+8. **Production Year**: The year the album was produced.
+9. **Track Names**: Names of all the tracks listed on both Face A and Face B.
+10. **Track Length**: Length of each track.
+
+### Other Information:
+- Any additional relevant information found on the album cover or label.
+
+### Output Format:
+- Provide the extracted information in the following CSV format:
+  ```
+  Title, Subtitle, Interpreter/Artist, Edition, Edition Number, Edition Year, Production, Production Year, Track Names (Face A), Track Length (Face A), Track Names (Face B), Track Length (Face B), Other Information
+  "Album Title", "Album Subtitle", "Artist Name", "Editor Name", "Edition Number", "Year of Edition", "Producer Name", "Year of Production", "Track 1 Name; Track 2 Name; ...", "Track 1 Length; Track 2 Length; ...", "Track 1 Name; Track 2 Name; ...", "Track 1 Length; Track 2 Length; ...", "Additional Information"
+  ```
+
+### Guidelines:
+- **Do Not Make Up Any Information**: Extract only the information that is clearly present in the image.
+- **Do Not Translate Information**: Keep all text exactly as it appears in the image.
+- If specific information is not available or visible, mark the field as "NaN".
+
+### Important Note:
+Ensure accuracy and completeness based on the visible text in the image. Provide the extracted data in the requested CSV format without any alterations or assumptions.
+'''
+
+
+#####################################################################
+################### EN-PROMPT_V4 based on Guidelines ################
+#####################################################################
+'''
+Given the following image of a vinyl record, your task is to extract specific information from the cover and label of the record and provide the output in a structured JSON format.
+
+### Information to Extract:
+
+1. **Title**: The main title of the album, as it appears on the front side of the cover.
+2. **Subtitle**: Any subtitle of the album, also found on the front side of the cover.
+3. **Interpreter/Artist**: The main artists, authors, or interpreters of the album.
+4. **Edition**: The name of the editor, usually a corporate entity.
+5. **Edition Number**: The specific edition number of the album.
+6. **Edition Year**: The year of the album's edition.
+7. **Production**: The name of the producer, which could be an organization and/or an individual.
+8. **Production Year**: The year the album was produced.
+9. **Track Names**: Names of all the tracks listed on both Face A and Face B.
+10. **Track Length**: Length of each track.
+
+### Other Information:
+- Any additional relevant information found on the album cover or label.
+
+### Output Format:
+- Provide the extracted information in the following JSON format:
+  ```json
+  {
+    "Title": "",
+    "Subtitle": "",
+    "Interpreter_Artist": "",
+    "Edition": "",
+    "Edition_Number": "",
+    "Edition_Year": "",
+    "Production": "",
+    "Production_Year": "",
+    "Tracks": {
+      "Face_A": [
+        {
+          "Track_Name": "",
+          "Track_Length": ""
+        },
+        ...
+      ],
+      "Face_B": [
+        {
+          "Track_Name": "",
+          "Track_Length": ""
+        },
+        ...
+      ]
+    },
+    "Other_Information": ""
+  }
+
+### Guidelines:
+- **Do Not Make Up Any Information**: Extract only the information that is clearly present in the image.
+- **Do Not Translate Information**: Keep all text exactly as it appears in the image.
+- If specific information is not available or visible, mark the field as "NaN".
+
+### Important Note:
+Ensure accuracy and completeness based on the visible text in the image. Provide the extracted data in the requested CSV format without any alterations or assumptions.
+'''
+
+
+PROMPT = f'''   
+    Your task is to extract specific information from the following extracted text from a vinyl record and provide the output in a structured JSON format.
+
+    text: {combined_text}
+
+    ### Information to Extract:
+
+    1. **Title**: The main title of the album, as it appears on the front side of the cover.
+    2. **Subtitle**: Any subtitle of the album, also found on the front side of the cover.
+    3. **Interpreter/Artist**: The main artists, authors, or interpreters of the album.
+    4. **Edition**: The name of the editor, usually a corporate entity.
+    5. **Edition Number**: The specific edition number of the album.
+    6. **Edition Year**: The year of the album's edition.
+    7. **Production**: The name of the producer, which could be an organization and/or an individual.
+    8. **Production Year**: The year the album was produced.
+    9. **Track Names**: Names of all the tracks listed on both Face A and Face B.
+    10. **Track Length**: Length of each track.
+
+    ### Other Information:
+    - Any additional relevant information found on the album cover or label.
+
+    ### Output Format:
+    - Provide the extracted information in the following JSON format:
+
+
+
+    ################NOTES################
+
+    Fields:
+
+    Principal: Côte Générale (border left starting by LP 2834)
+    *Localisation: /
+    *Support: Disque 33 tours 
+    *Format
+    Continent
+    Subcontinent
+    Pays 
+    Région/
+    Localité/
+    Population
+    Titre
+    Sous-Titre
+    Interprète
+    *Genre 
+    *Instruments 
+    Production
+    Collection 
+    Année de production
+    Numéro édition
+    Auteur livret
+    Langue
+    Photos (livret) #
+    Pages(livret) #
+    Collectage (Recorded by)
+
+    * Support #
+    * Autres pays
+    *Ancien Numéro
+    
+    Edition
+    Année d'Edition
+    Lieu de Production
+    Lieu d'Edition  
+    * Numéro de Support
+    No Matrice /
+    cote  
+    

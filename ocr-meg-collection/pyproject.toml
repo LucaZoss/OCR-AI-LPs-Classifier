@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ocr-meg-collection"
+version = "0.1.0"
+description = ""
+authors = ["LucaZoss <lucazosso@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^1.43.0"
+pandas = "^2.2.2"
+requests = "^2.32.3"
+pillow = "^10.4.0"
+pytesseract = "^0.3.13"
+opencv-python = "^4.10.0.84"
+matplotlib = "^3.9.2"
+ollama = "^0.3.2"
+transformers = "^4.44.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

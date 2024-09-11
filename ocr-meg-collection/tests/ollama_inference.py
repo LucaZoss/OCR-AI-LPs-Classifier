@@ -23,7 +23,7 @@ def query_llama_model(prompt: str) -> str:
 
     # Query the LLaMA model
     stream = ollama.chat(
-        model='llama3.1:8b',
+        model='mervinpraison/llama3.1-instruct:8b',  # 'llama3.1:8b',
         messages=[{'role': 'user', 'content': prompt}],
         stream=True,
         format='json'
@@ -52,7 +52,6 @@ def extract_information_from_text(file_path: str):
     PROMPT = f'''   
     You are provided with text extracted from the front and back covers of a vinyl record. Your task is to identify and extract specific information from each section as follows:
     
-    text: {combined_text}
     
     ### Information to Extract from the Front Cover:
     1. **Title**: The main title of the album, as it appears on the front side of the cover.
@@ -72,6 +71,8 @@ def extract_information_from_text(file_path: str):
     - Only Use Provided Information: Extract information strictly from the provided text sections. Do not infer or create information beyond what is available.
     - Maintain Formatting: Ensure that extracted names, titles, and other information are copied exactly as they appear in the text.
     - If specific information is not available in the text, mark the field with "NaN".
+    
+    Text: {combined_text}
     '''
 
     # Query the LLaMA model

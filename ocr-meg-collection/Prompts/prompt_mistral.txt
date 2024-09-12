@@ -1,61 +1,4 @@
-from openai import OpenAI
-import json
-
-import pandas as pd
-
-
-def read_combined_text(file_path: str) -> str:
-    """
-    Reads the content of the combined.txt file.
-
-    :param file_path: Path to the combined.txt file.
-    :return: Content of the file as a string.
-    """
-    with open(file_path, "r") as file:
-        return file.read()
-
-
-def query_gpt4o(system_prompt: str, prompt: str):
-    api_key = "sk-7mFl0kHX0-EheoipR2JzGLEnPTFsiACZ_t1O_fd3TpT3BlbkFJk0uEfZNLfvwTPYq6NkLet7Q_vvz43SB9FRsZer7vYA"
-
-    client = OpenAI(
-        # This is the default and can be omitted
-        api_key=api_key,
-    )
-
-    chat_completion = client.chat.completions.create(
-        model="gpt-4o-2024-08-06",
-        messages=[
-
-            {"role": "system",
-             "content": system_prompt
-             },
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        ], response_format={"type": "json_object"}
-    )
-
-    return chat_completion.choices[0].message.content
-
-
-def extract_information_from_text(file_path: str):
-    """
-    Extracts artist, producer, and editor information from the combined.txt file
-    and saves it as a JSON file.
-
-    :param file_path: Path to the combined.txt file.
-    """
-    # Read the content from the combined.txt file
-    combined_text = read_combined_text(file_path)
-
-    SYSTEM_PROMPT = """
-You are an intelligent assistant tasked with extracting structured information from the OCR text of vinyl record covers. Your goal is to accurately identify and extract specific details and present them in a structured JSON format. Follow the instructions carefully to ensure that all relevant information is captured correctly.
-"""
-
-    # Define the prompt for the LLaMA model
-    PROMPT = str(f"""   
+[INST] 
     You are given the extracted text from the OCR process of a vinyl record's cover. The OCR text may contain errors such as cut-off words, missing characters, or incorrect formatting. Your task is to identify and extract specific pieces of information from this text, correcting these errors where possible, and present the information in a structured JSON format. The output should include general information about the vinyl (LP), details about each track, and any relevant notes.
 
     Instructions:
@@ -118,46 +61,52 @@ You are an intelligent assistant tasked with extracting structured information f
     }}
 
     Use this format to structure the extracted information from the following OCR text, correcting errors as necessary: 
-    {combined_text}
-    """)
-
-    # Query the LLaMA model
-    model_output = query_gpt4o(system_prompt=SYSTEM_PROMPT, prompt=PROMPT)
-
-    # Check if model output is valid
-    if model_output.strip():
-        # Parse the model output to JSON
-        try:
-            extracted_info = json.loads(model_output)
-            output_file_path = "extracted_info.json"
-
-            # Save the extracted information to a JSON file
-            with open(output_file_path, "w") as json_file:
-                json.dump(extracted_info, json_file, indent=4)
-
-            print(
-                f"Information successfully extracted and saved to {output_file_path}")
-
-        except json.JSONDecodeError:
-            print("Failed to parse model output to JSON format. Here is the raw output:")
-            print(model_output)
-    else:
-        print("No output received from the model.")
-
-    return model_output
-
-
-if __name__ == "__main__":
-    # Path to the combined.txt file
-    # "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/extracted_text/20240906_131209_combined.txt"
-    combined_text_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
-
-    # Extract information from text
-    model_output = extract_information_from_text(combined_text_path)
-
-    # Delete "```json" from the beginning of the model output and "```" from the end
-    model_output = model_output.replace("```json", "").replace("```", "")
-
-    # Store model output as a txt file
-    with open("model_output.json", "w") as text_file:
-        text_file.write(model_output)
+    Front Cover:
+Con el duo
+LOS ROMANCEROS
+LP 2836
+ALVAREZ
+MAS 3002
+ALTA FIDELIDAD
+en
+ria
+Cochab
+mba
+Back Cover:
+" ALEGRIA EN COCHABAMBA"
+Con el "DUO LOS ROMANCEROS"
+DISCOS ALVAREZ presenta este disco de larga duración con auténticas joyas
+de nuestro folklore en las voces del "DUO LOS ROMANCEROS".
+Luis Flores y Nemecio Ignación componentes de este duo pusieron todo su
+empeño y capacidad para la mejor realización de este disco para que todas
+aquellas personas que cumplen años, escuchen y bailen con todas las costum-
+bres de nuestra tierra del altiplano.
+Manuel Alvarez
+Original de la portada gentileza de foto Reflex Cochabamba Bolivia
+LII
+LADO "A"
+Naranja madura (cueca)
+1.
+2.
+El ladrón (bailecito)
+3.
+Mala suerte (huayño)
+4. - Paceñita (cueca)
+5.
+Carcajeñita (huayño)
+6. - Pretenciosa (cueca)
+LADO "B"
+1. Notas de mi guitarra (cueca)
+2.
+Cholita paceña (huayño)
+3. Negrita (huayño)
+4 3 6 N
+4. Huirito (huayño)
+5.
+6.
+-
+Alfombrado verde (cueca)
+Tranca Llallagua (cueca)
+Producciones DISCOS ALVAREZ
+COCHABAMBA Bolivia
+[/INST]

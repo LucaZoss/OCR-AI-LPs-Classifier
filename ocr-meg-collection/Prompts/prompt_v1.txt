@@ -1,0 +1,108 @@
+"""
+You are given the extracted text from the OCR process of a vinyl record's cover. Your task is to identify and extract specific pieces of information from this text and present it in a structured JSON format. The output should include general information about the vinyl (LP) and details about each track.
+
+Instructions:
+
+1. General Information:
+   - LP_ID: Extract the ID of the LP, which always starts with "LP" followed by a 4-digit number.
+   - Title: Extract the title of the LP, typically found on the front cover.
+   - Subtitle: If present, extract the subtitle of the LP.
+   - Performer: Extract the full names of the performers or artists involved, separated by a semicolon if multiple.
+   - Publisher: Extract the name of the publisher (company or organization responsible for the release).
+   - Publishing Year: Identify the publishing year of the LP if mentioned.
+   - Label Company: Extract the name of the label company.
+   - Label Number: Identify the unique label identifier, usually appearing after the label company's name.
+   - Language: Determine the language used in the text (e.g., Spanish).
+   - Recording Info: Extract information about where or by whom the LP was recorded, if available.
+   - Other Information: Include any other relevant information that doesn't fall into the above categories.
+   - Genre/Style: Determine the genre or style of the album if mentioned, sometimes between '()' after the track names.
+
+2. Track Information:
+   For each track, extract the following details:
+   - Face: Determine whether the track is on Face "A" or "B".
+   - Track_Number: Extract the track's number or position in the list.
+   - Track_Name: Extract the name of the track.
+   - Track_Composer: Extract the composer’s name, which may follow the track name. (example: Jose Fernandez, Dpto. del Folklore).
+   - Track_Length: Extract the track length if mentioned.
+
+Example Output in JSON format:
+
+{
+  "General Information": {
+    "LP_ID": "LP 2837",
+    "Title": "Fiesta en Bolivia",
+    "Subtitle": "Duo los romanceros",
+    "Performer": "Juan Espinoza; Gregorio Pinto",
+    "Publisher": "Casa Alvarez",
+    "Publishing Year": "1990",
+    "Label Company": "Discos Alvarez",
+    "Label Number": "MAS-3001",
+    "Language": "Spanish",
+    "Recording Info": "Grabado en estudios 'Electro Disc.'",
+    "Other Information": "NaN",
+    "Genre/Style": "Bolivian cueca"
+  },
+  "Track Info": [
+    {
+      "Face": "A",
+      "Track_Number": 1,
+      "Track_Name": "Huerfana Virginia",
+      "Track_Composer": "Dpto. Del Folk",
+      "Track_Length": "2'44"
+    }
+    // There should be 12 tracks in total (6 in face A and 6 in face B)
+  ]
+}
+
+Use this format to structure the extracted information from the following OCR text:
+
+Text to Analyze: 
+Front Cover:
+Con el duo
+LOS ROMANCEROS
+LP 2836
+ALVAREZ
+MAS 3002
+ALTA FIDELIDAD
+en
+ria
+Cochab
+mba
+Back Cover:
+" ALEGRIA EN COCHABAMBA"
+Con el "DUO LOS ROMANCEROS"
+DISCOS ALVAREZ presenta este disco de larga duración con auténticas joyas
+de nuestro folklore en las voces del "DUO LOS ROMANCEROS".
+Luis Flores y Nemecio Ignación componentes de este duo pusieron todo su
+empeño y capacidad para la mejor realización de este disco para que todas
+aquellas personas que cumplen años, escuchen y bailen con todas las costum-
+bres de nuestra tierra del altiplano.
+Manuel Alvarez
+Original de la portada gentileza de foto Reflex Cochabamba Bolivia
+LII
+LADO "A"
+Naranja madura (cueca)
+1.
+2.
+El ladrón (bailecito)
+3.
+Mala suerte (huayño)
+4. - Paceñita (cueca)
+5.
+Carcajeñita (huayño)
+6. - Pretenciosa (cueca)
+LADO "B"
+1. Notas de mi guitarra (cueca)
+2.
+Cholita paceña (huayño)
+3. Negrita (huayño)
+4 3 6 N
+4. Huirito (huayño)
+5.
+6.
+-
+Alfombrado verde (cueca)
+Tranca Llallagua (cueca)
+Producciones DISCOS ALVAREZ
+COCHABAMBA Bolivia
+"""

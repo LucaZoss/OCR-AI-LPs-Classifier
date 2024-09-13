@@ -1,3 +1,5 @@
+import logging
+import re
 from tqdm import tqdm
 from functools import wraps
 import os
@@ -34,11 +36,130 @@ def fetch_lp_covers_path(base_dir: str, lp_cote_general: str) -> list:
     return cover_paths
 
 
+##### ORCHESTRATOR CLASS UTILS #####
+
+
 def fetch_track_duration(audio_file_path: str) -> str:
     """
     This function fetches the track duration from the provided file path.
     """
-    audio = File(audio_file_path)
+    try:
+        audio = File(audio_file_path)  # using mutagen to get the audio file
+        duration_sec = audio.info.length
+
+        # Format the duration as minutes and seconds with leading zeros for seconds
+        minutes = int(duration_sec // 60)
+        seconds = int(duration_sec % 60)
+        formatted_duration = f"{minutes}'{seconds:02d}"
+        return formatted_duration
+    except Exception as e:
+        logging.error(f"Error fetching duration for {audio_file_path}: {e}")
+        return 'missing'
+
+
+def normalize_track_number(track_number):
+    """
+    Normalize track numbers to a common format (e.g., '01').
+    Removes non-digit characters and zero-pads to two digits.
+    """
+    # Extract digits from the track number and zero-pad to 2 digits
+    match = re.search(r'\d+', track_number)
+    normalized_number = match.group(0).zfill(2) if match else None
+    logging.info(
+        f"Normalized track number from '{track_number}' to '{normalized_number}'")
+    return normalized_number
+
+
+def map_tracks_to_audio_files(track_info, lp_base_dir):
+    """
+    Function to map track names extracted from the AI output to the corresponding audio files.
+    """
+    audio_map = {}
+
+    # Iterate through all track information
+    for track in track_info:
+        lp_id = track.get('LP_ID')  # e.g., "LP2836"
+        # Correct path to the LP folder
+        lp_folder = os.path.join(lp_base_dir, lp_id)
+
+        if not os.path.isdir(lp_folder):
+            logging.warning(f"Folder {lp_folder} not found for LP_ID: {lp_id}")
+            continue
+
+        # Iterate through each file in the LP folder
+        for root, _, files in os.walk(lp_folder):
+            for file in files:
+                if file.endswith('.mp3'):
+                    # Extract the face and track number from the file name
+                    match = re.match(rf'{lp_id}_1z1_([AB])(\d+)', file)
+                    if match:
+                        face = match.group(1)
+                        # Normalize track number to two digits
+                        track_number = match.group(2).zfill(2)
+                        file_path = os.path.join(root, file)
+                        audio_map[(lp_id, face, track_number)] = file_path
+                        logging.info(
+                            f"Matched file: {file_path} for LP_ID: {lp_id}, Face: {face}, Track: {track_number}")
+                    else:
+                        logging.info(
+                            f"No match for file: {file} in folder: {lp_folder}")
+
+    return audio_map
+
+
+# UTILITIES FOR TERMINAL DISPLAYING
+
+
+def with_progress_bar(iterable, desc="Processing", unit="items"):
+    """
+    A decorator that adds a progress bar to a function processing an iterable.
+
+    Args:
+        iterable (iterable): The iterable object to process.
+        desc (str): Description for the progress bar.
+        unit (str): Unit name to display with each iteration (default is 'items').
+
+    Yields:
+        item: Each item from the iterable.
+    """
+    for item in tqdm(iterable, desc=desc, unit=unit):
+        yield item
+
+
+def with_progress_bar_1(desc="Processing", unit="items"):
+    """
+    A decorator that adds a progress bar to a function processing an iterable.
+
+    Args:
+        desc (str): Description for the progress bar.
+        unit (str): Unit name to display with each iteration (default is 'items').
+
+    Returns:
+        function: The decorated function with a progress bar.
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            # Call the original function to get the iterable result
+            iterable = func(*args, **kwargs)
+
+            # If the result is iterable (list, dict, etc.), show the progress bar
+            if hasattr(iterable, '__iter__') and not isinstance(iterable, str):
+                return {key: value for key, value in tqdm(iterable.items(), desc=desc, unit=unit)} if isinstance(iterable, dict) else [item for item in tqdm(iterable, desc=desc, unit=unit)]
+            else:
+                # If the result is not iterable, just return it as is
+                return iterable
+
+        return wrapper
+    return decorator
+
+
+##### DEPRECATED FUNCTIONS #####
+def fetch_track_duration_old(audio_file_path: str) -> str:
+    """
+    This function fetches the track duration from the provided file path.
+    """
+    audio = File(audio_file_path)  # using mutagen to get the audio file
 
     duration_sec = audio.info.length
 
@@ -94,7 +215,7 @@ def list_all_track_duration_from_lp(base_dir: str, lp_cote_general: str) -> dict
         track_info['durée'].append(duration)
 
     # Separate sides A and B
-    max_tracks = 6  # Assuming 6 tracks per side
+    max_tracks = 6
     filled_track_info = {
         'filename': [],
         'face': [],
@@ -134,66 +255,3 @@ def list_all_track_duration_from_lp(base_dir: str, lp_cote_general: str) -> dict
     final_dict = {cote: filled_track_info}
 
     return final_dict
-
-
-# IDEAS
-def map_track_names_ai_output_to_audio_files(lp_cote_general: int, ai_output: dict) -> dict:
-    """
-    This function maps the track names extracted from the AI output to the corresponding audio files.
-    """
-    # Get the list of audio files and track names from the AI output
-    audio_files = list_all_track_duration_from_lp(lp_cote_general)
-    track_names = ai_output["track_names"]
-
-    # Map track names to audio files
-    track_mapping = {audio_file: track_name for audio_file,
-                     track_name in zip(audio_files, track_names)}
-
-    return track_mapping
-
-
-# UTILITIES FOR TERMINAL DISPLAYING
-
-
-def with_progress_bar(iterable, desc="Processing", unit="items"):
-    """
-    A decorator that adds a progress bar to a function processing an iterable.
-
-    Args:
-        iterable (iterable): The iterable object to process.
-        desc (str): Description for the progress bar.
-        unit (str): Unit name to display with each iteration (default is 'items').
-
-    Yields:
-        item: Each item from the iterable.
-    """
-    for item in tqdm(iterable, desc=desc, unit=unit):
-        yield item
-
-
-def with_progress_bar_1(desc="Processing", unit="items"):
-    """
-    A decorator that adds a progress bar to a function processing an iterable.
-
-    Args:
-        desc (str): Description for the progress bar.
-        unit (str): Unit name to display with each iteration (default is 'items').
-
-    Returns:
-        function: The decorated function with a progress bar.
-    """
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            # Call the original function to get the iterable result
-            iterable = func(*args, **kwargs)
-
-            # If the result is iterable (list, dict, etc.), show the progress bar
-            if hasattr(iterable, '__iter__') and not isinstance(iterable, str):
-                return {key: value for key, value in tqdm(iterable.items(), desc=desc, unit=unit)} if isinstance(iterable, dict) else [item for item in tqdm(iterable, desc=desc, unit=unit)]
-            else:
-                # If the result is not iterable, just return it as is
-                return iterable
-
-        return wrapper
-    return decorator

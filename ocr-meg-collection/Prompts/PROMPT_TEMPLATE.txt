@@ -410,3 +410,62 @@ PROMPT = f'''
     No Matrice /
     cote  
     
+
+##### FINE-TUNED Fields ######
+
+   Fields:
+
+    LP_ID: Côte Générale (border left starting by "LP")
+    *Localisation: /
+    *Support: Disque 33 tours 
+    *Format : 30cm
+    *Continent: Will be done by algo 
+    *Subcontinent: Will be done by algo 
+    *Pays : Will be done by algo (can be put in comments)
+    *Population: (Can be put in comments section)
+    *Instruments: Should be done manually (or Trained by AudioClass)
+    Titre: Title of the Album
+    Sous-Titre: Name of the artist(s)
+    Performer: Name of the artist (stage name)
+    *Genre : if clearly listed put it
+
+    Production Company:
+    Collection: If the LP belongs to a collection, put the name of the collection
+    Collectage: Information about where and/or who the LP has been recorded (spanish "grabado/grabacion")
+    
+    Publishing/Publisher Company: Name of the publisher (often appears on a logo)
+    Edition Number/ Publishing Number: The unique number that identifies the LP. Could be a mix of letters and numbers
+    
+    Production Location: City, Country of production location
+    Publishing Location: City, Country of publishing location
+
+    
+    Example:
+
+    General Information
+
+    LP_ID = LP 2837 #ID always starting with a "LP" followed by a 4 digit number
+    Title: Fiesta en Bolivia # Title of the LP
+    Subtitle: Duo  los romanceros # Subtitile can not be present
+    Performer: Juan Espinoza ; Gregorio Pinto # full name of the artist
+    Publisher: Casa Alvarez # Name of the publisher (Company Name)
+    Publihsing Year: 1990 # Publishing Year
+    Label Company: Discos Alvarez #Label Company
+    Label Number: MAS-3001 #Unique Label Identifier always after label comapny name
+    Language: spanish #language detected
+    Recording Info: Grabado en estudios "Electro Disc." # Where or who recored the LP
+    Other Information: NaN # Other usefull information
+    Genre/Style: bolivian cueca # Genre of the album not always present
+
+    Track Info:
+    Face: A # Face of the LP can be A or B
+    Track_Number: 1 #Number of the track/postition of the track in the list always starts with 1
+    Track_Name: Huerfana Virginia # The name of the Track
+    Track_Composer: Dpto. Del Folk # Often after track name and is the composer name (can be a company or an individual (i.e. José Torrico))
+    Track_Length: 2'44 # Length of the track not always present
+    ...
+    
+
+
+    
+   

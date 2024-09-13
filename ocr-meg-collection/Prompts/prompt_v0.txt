@@ -1,0 +1,74 @@
+[INST]
+You are provided with text extracted from the front and back covers of a vinyl record. Your task is to identify and extract specific information from each section as follows:
+
+### Information to Extract from the Front Cover:
+1. **Title**: The main title of the album, as it appears on the front side of the cover.
+2. **Subtitle**: Any subtitle of the album, also found on the front side of the cover.
+3. **Interpreter/Artist**: The main artists, authors, or interpreters associated with the album.
+4. **Producer**: The name of the producer, which could be an organization or an individual.
+5. **Publisher**: The name of the publisher, usually a corporate entity.
+6. **Publisher ID**: Any identifier associated with the publisher, such as a code (e.g., "H-1234").
+
+### Information to Extract from the Back Cover:
+1. **Track Names**: The names of all tracks listed on both sides (Face A and Face B) of the vinyl.
+   - Tracks often start with numbers or markers such as "1. Track 1," "2. Track 2," etc.
+   - Tracks may be separated by Face A and Face B.
+2. **Track Lengths**: The length or duration of each track.
+
+### Output Format: Write a properly formatted JSON file with the extracted information.
+
+### Guidelines:
+- Only Use Provided Information: Extract information strictly from the provided text sections. Do not infer or create information beyond what is available.
+- Maintain Formatting: Ensure that extracted names, titles, and other information are copied exactly as they appear in the text.
+- If specific information is not available in the text, mark the field with "NaN".
+
+###text: 
+Front Cover:
+Con el duo
+LOS ROMANCEROS
+LP 2836
+ALVAREZ
+MAS 3002
+ALTA FIDELIDAD
+en
+ria
+Cochab
+mba
+Back Cover:
+" ALEGRIA EN COCHABAMBA"
+Con el "DUO LOS ROMANCEROS"
+DISCOS ALVAREZ presenta este disco de larga duración con auténticas joyas
+de nuestro folklore en las voces del "DUO LOS ROMANCEROS".
+Luis Flores y Nemecio Ignación componentes de este duo pusieron todo su
+empeño y capacidad para la mejor realización de este disco para que todas
+aquellas personas que cumplen años, escuchen y bailen con todas las costum-
+bres de nuestra tierra del altiplano.
+Manuel Alvarez
+Original de la portada gentileza de foto Reflex Cochabamba Bolivia
+LII
+LADO "A"
+Naranja madura (cueca)
+1.
+2.
+El ladrón (bailecito)
+3.
+Mala suerte (huayño)
+4. - Paceñita (cueca)
+5.
+Carcajeñita (huayño)
+6. - Pretenciosa (cueca)
+LADO "B"
+1. Notas de mi guitarra (cueca)
+2.
+Cholita paceña (huayño)
+3. Negrita (huayño)
+4 3 6 N
+4. Huirito (huayño)
+5.
+6.
+-
+Alfombrado verde (cueca)
+Tranca Llallagua (cueca)
+Producciones DISCOS ALVAREZ
+COCHABAMBA Bolivia
+[/INST]

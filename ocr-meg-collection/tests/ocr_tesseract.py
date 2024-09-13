@@ -88,8 +88,10 @@ def store_album_cover_facesAB(LP_Front_Image_Path: str, LP_Back_Image_Path: str)
 
 if __name__ == "__main__":
     # Example file paths for testing
-    LP_Front_Image_Path = '/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/test/20240906_131209.jpg'
-    LP_Back_Image_Path = '/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/test/20240906_131214.jpg'
+    # '/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/test/20240906_131209.jpg'
+    LP_Front_Image_Path = '/Volumes/LaCie_500G/MEG_CAT_TEST/LP2836/LP2836_cover01.jpg'
+    # '/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/test/20240906_131214.jpg'
+    LP_Back_Image_Path = '/Volumes/LaCie_500G/MEG_CAT_TEST/LP2836/LP2836_cover02.jpg'
 
     # Test extract_text_from_img function
     front_text = extract_text_from_img(LP_Front_Image_Path)

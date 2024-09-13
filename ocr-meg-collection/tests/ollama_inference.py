@@ -20,14 +20,14 @@ def query_llama_model(prompt: str) -> str:
     :param prompt: The input prompt for the LLaMA model.
     :return: Model output as a string.
     """
-
     # Query the LLaMA model
     stream = ollama.chat(
-        model='llama3.1:8b',
-        messages=[{'role': 'user', 'content': prompt}],
+        model='mistral-nemo:12b-instruct-2407-q3_K_S',  # 'llama3.1:8b',
+        messages=[
+            {'role': 'user', 'content': prompt}
+        ],
         stream=True,
-        format='json'
-
+        # format='json'
     )
 
     # Collect output chunks
@@ -49,29 +49,71 @@ def extract_information_from_text(file_path: str):
     combined_text = read_combined_text(file_path)
 
     # Define the prompt for the LLaMA model
-    PROMPT = f'''   
-    You are provided with text extracted from the front and back covers of a vinyl record. Your task is to identify and extract specific information from each section as follows:
-    
-    text: {combined_text}
-    
-    ### Information to Extract from the Front Cover:
-    1. **Title**: The main title of the album, as it appears on the front side of the cover.
-    2. **Subtitle**: Any subtitle of the album, also found on the front side of the cover.
-    3. **Interpreter/Artist**: The main artists, authors, or interpreters associated with the album.
-    4. **Producer**: The name of the producer, which could be an organization or an individual.
-    5. **Publisher**: The name of the publisher, usually a corporate entity.
-    6. **Publisher ID**: Any identifier associated with the publisher, such as a code (e.g., "H-1234").
+    PROMPT = f'''[INST] 
+    You are given the extracted text from the OCR process of a vinyl record's cover. The OCR text may contain errors such as cut-off words, missing characters, or incorrect formatting. Your task is to identify and extract specific pieces of information from this text, correcting these errors where possible, and present the information in a structured JSON format. The output should include general information about the vinyl (LP), details about each track, and any relevant notes.
 
-    ### Information to Extract from the Back Cover:
-    1. **Track Names**: The names of all tracks listed on both sides (Face A and Face B) of the vinyl.
-    - Tracks often start with numbers or markers such as "1. Track 1," "2. Track 2," etc.
-    - Tracks may be separated by Face A and Face B.
-    2. **Track Lengths**: The length or duration of each track.
+    Instructions:
 
-    ### Guidelines:
-    - Only Use Provided Information: Extract information strictly from the provided text sections. Do not infer or create information beyond what is available.
-    - Maintain Formatting: Ensure that extracted names, titles, and other information are copied exactly as they appear in the text.
-    - If specific information is not available in the text, mark the field with "NaN".
+    1. General Information:
+    - LP_ID: Extract the ID of the LP, which always starts with "LP" followed by a 4-digit number.
+    - Title: Extract the title of the LP, typically found on the front cover.
+    - Subtitle: If present, extract the subtitle of the LP.
+    - Performer: Extract the full names of the performers or artists involved, separated by a semicolon if multiple.
+    - Publisher: Extract the name of the publisher (company or organization responsible for the release).
+    - Publishing Year: Identify the publishing year of the LP if mentioned.
+    - Label Company: Extract the name of the label company.
+    - Label Number: Identify the unique label identifier, usually appearing after the label company's name.
+    - Language: Determine the language used in the text (e.g., Spanish).
+    - Recording Info: Extract information about where or by whom the LP was recorded, if available.
+    - Other Information: Include any other relevant information that doesn't fall into the above categories.
+    - Genre/Style: Determine the genre or style of the album if mentioned, sometimes found in parentheses '()' after the track names.
+    - Notes: Extract any additional notes or contextual information found on the cover that may provide insights into the album's content or production.
+
+    2. Track Information:
+    For each track, extract the following details:
+    - Face: Determine whether the track is on Face "A" or "B".
+    - Track_Number: Correctly identify the track's number or position in the list. If the track numbers are concatenated or split incorrectly, infer the correct order.
+    - Track_Name: Correctly extract the name of the track. If parts of the name are cut off or incorrectly joined with other text, attempt to infer the full name.
+    - Track_Composer: Extract the composer’s name, which may follow the track name (e.g., Jose Fernandez, Dpto. del Folklore).
+    - Track_Length: Extract the track length if mentioned.
+
+    3. Error Handling:
+    - When you encounter cut-off words or concatenated track names/numbers, make an educated guess to reconstruct the proper names and numbers.
+    - If the track numbers are listed in a format such as "1, 2, TrackName1, TrackName2", correctly separate and assign the track numbers to the respective track names.
+
+    Example Output in JSON format:
+
+    {{
+        "General Information": {{
+            "LP_ID": "LP 2837",
+            "Title": "Fiesta en Bolivia",
+            "Subtitle": "Duo los romanceros",
+            "Performer": "Juan Espinoza; Gregorio Pinto",
+            "Publisher": "Casa Alvarez",
+            "Publishing Year": "1990",
+            "Label Company": "Discos Alvarez",
+            "Label Number": "MAS-3001",
+            "Language": "Spanish",
+            "Recording Info": "Grabado en estudios 'Electro Disc.'",
+            "Other Information": "NaN",
+            "Genre/Style": "Bolivian cueca",
+            "Notes": "Original de la portada gentileza de foto Reflex Cochabamba Bolivia"
+        }},
+        "Track Info": [
+            {{
+                "Face": "A",
+                "Track_Number": 1,
+                "Track_Name": "Huerfana Virginia",
+                "Track_Composer": "Dpto. Del Folk",
+                "Track_Length": "2'44"
+            }}
+            // There should be 12 tracks in total
+        ]
+    }}
+
+    Use this format to structure the extracted information from the following OCR text, correcting errors as necessary: 
+    {combined_text}
+    [/INST]
     '''
 
     # Query the LLaMA model
@@ -100,7 +142,7 @@ def extract_information_from_text(file_path: str):
 
 if __name__ == "__main__":
     # Path to the combined.txt file
-    combined_text_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/extracted_text/20240906_131209_combined.txt"
+    combined_text_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
 
     # Extract information from text
     extract_information_from_text(combined_text_path)

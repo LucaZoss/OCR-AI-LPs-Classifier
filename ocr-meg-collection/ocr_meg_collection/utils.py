@@ -153,6 +153,27 @@ def with_progress_bar_1(desc="Processing", unit="items"):
         return wrapper
     return decorator
 
+##### MAIN.PY FILE UTILS #####
+
+
+def get_lp_subfolders(base_dir):
+    """
+    Get a list of subfolder names in the base_dir that start with 'LP'.
+
+    Args:
+        base_dir (str): The base directory containing subfolders.
+
+    Returns:
+        list: A list of subfolder names starting with 'LP'.
+    """
+    try:
+        subfolders = [name for name in os.listdir(base_dir)
+                      if os.path.isdir(os.path.join(base_dir, name)) and name.startswith('LP')]
+        return subfolders
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
 
 ##### DEPRECATED FUNCTIONS #####
 def fetch_track_duration_old(audio_file_path: str) -> str:

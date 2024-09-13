@@ -18,7 +18,7 @@ load_dotenv()
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv(
     "GOOGLE_APPLICATION_CREDENTIALS")
 
-print("Google Service Account JSON File Creds Loaded Successfully")
+print("Google Service Account JSON File Creds Loaded Successfully for VERTEXAI INFERENCE")
 
 
 class AIClassifier:

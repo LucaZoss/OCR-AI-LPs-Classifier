@@ -16,7 +16,7 @@ load_dotenv()
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv(
     "GOOGLE_APPLICATION_CREDENTIALS")
 
-print("Google Service Account JSON File Creds Loaded Successfully")
+print("Google Service Account JSON File Creds Loaded Successfully for OCR PROCESSING")
 
 TARGET_DIR = os.path.join(os.getcwd(),
                           'ocr-meg-collection', 'ds_pipeline', '0_raw_ocr_txt')

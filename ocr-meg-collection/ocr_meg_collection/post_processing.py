@@ -63,6 +63,8 @@ class Orchestrator:
             return
 
         df = pd.DataFrame(json_list)
+        # Add the new column 'Cat_Generated_By_AI' with value True
+        df['AI_Cat_Generated'] = True
         df.to_csv(output_file, index=False, encoding='utf-8')
         logging.info(f"Data merged into {output_file}")
 

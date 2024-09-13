@@ -1,13 +1,13 @@
 File_Name,Face,Track_Number,Track_Name,Track_Composer,Track_Length,Track_Length_AI,AI_Cat_Generated
-missing,A,3.,Mala suerte,,missing,,True
-missing,A,2.,El ladrón,,missing,,True
-LP2836_1z1_A06.mp3,A,6.,Pretenciosa,,2'45,,True
-LP2836_1z1_A01.mp3,A,1.,Naranja madura,,9'10,,True
-LP2836_1z1_A05.mp3,A,5.,Carcajeñita,,2'41,,True
-LP2836_1z1_A04.mp3,A,4.,Paceñita,,2'50,,True
-LP2836_1z1_B04.mp3,B,4.,Huirito,,2'28,,True
-LP2836_1z1_B02.mp3,B,2.,Cholita paceña,,3'05,,True
-LP2836_1z1_B03.mp3,B,3.,Negrita,,2'46,,True
-LP2836_1z1_B06.mp3,B,6.,Tranca Llallagua,,3'02,,True
-LP2836_1z1_B01.mp3,B,1.,Notas de mi guitarra,,2'51,,True
-LP2836_1z1_B05.mp3,B,5.,Alfombrado verde,,2'53,,True
+missing,A,2,El ladrón,,missing,,True
+missing,A,3,Mala suerte,,missing,,True
+LP2836_1z1_A04.mp3,A,4,Paceñita,,2'50,,True
+LP2836_1z1_A01.mp3,A,1,Naranja madura,,9'10,,True
+LP2836_1z1_B01.mp3,B,1,Notas de mi guitarra,,2'51,,True
+LP2836_1z1_B03.mp3,B,3,Negrita,,2'46,,True
+LP2836_1z1_B04.mp3,B,4,Huirito,,2'28,,True
+LP2836_1z1_B05.mp3,B,5,Alfombrado verde,,2'53,,True
+LP2836_1z1_B06.mp3,B,6,Tranca Llallagua,,3'02,,True
+LP2836_1z1_A05.mp3,A,5,Carcajeñita,,2'41,,True
+LP2836_1z1_A06.mp3,A,6,Pretenciosa,,2'45,,True
+LP2836_1z1_B02.mp3,B,2,Cholita paceña,,3'05,,True

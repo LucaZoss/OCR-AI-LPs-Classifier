@@ -7,21 +7,24 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-openai = "^1.43.0"
 pandas = "^2.2.2"
 requests = "^2.32.3"
+mutagen = "^1.47.0"
+google-cloud-vision = "^3.7.4"
+python-dotenv = "^1.0.1"
+google-cloud-aiplatform = "^1.66.0"
+
+[tool.poetry.group.dev.dependencies]
+openai = "^1.43.0"
 pillow = "^10.4.0"
 pytesseract = "^0.3.13"
 opencv-python = "^4.10.0.84"
 matplotlib = "^3.9.2"
 ollama = "^0.3.2"
 transformers = "^4.44.2"
-mutagen = "^1.47.0"
-ipykernel = "^6.29.5"
-google-cloud-vision = "^3.7.4"
 easyocr = "^1.7.1"
-python-dotenv = "^1.0.1"
-google-cloud-aiplatform = "^1.66.0"
+ipykernel = "^6.29.5"
+
 
 
 [build-system]

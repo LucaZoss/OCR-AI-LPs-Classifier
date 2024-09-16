@@ -61,10 +61,17 @@ def normalize_track_number(track_number):
     """
     Normalize track numbers to a common format (e.g., '01').
     Removes non-digit characters and zero-pads to two digits.
+    Handles cases where track_number is None or invalid.
     """
+    if not isinstance(track_number, str) or not track_number.strip():
+        # If track_number is None or not a valid string, log a warning and return None
+        logging.warning(f"Invalid track number: {track_number}")
+        return None
+
     # Extract digits from the track number and zero-pad to 2 digits
     match = re.search(r'\d+', track_number)
     normalized_number = match.group(0).zfill(2) if match else None
+
     logging.info(
         f"Normalized track number from '{track_number}' to '{normalized_number}'")
     return normalized_number

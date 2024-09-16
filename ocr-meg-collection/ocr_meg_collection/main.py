@@ -82,4 +82,4 @@ def main(lps_to_process: int = all):
 
 
 if __name__ == "__main__":
-    main(lps_to_process=1)
+    main(lps_to_process=20)

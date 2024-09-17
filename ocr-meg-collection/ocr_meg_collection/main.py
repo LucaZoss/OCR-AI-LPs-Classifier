@@ -107,4 +107,4 @@ def main(lp_selection: str = "all"):
 
 if __name__ == "__main__":
     # Example: Change "all" to "5", "first-7", "last-20", "21-56" as needed
-    main(lp_selection="6-7")
+    main(lp_selection="25")

@@ -42,6 +42,9 @@ class Orchestrator:
                                 # Add LP_ID fetched from the filename
                                 general_info_entry['LP_ID'] = self.fetch_lp_id(
                                     json_file_path)
+                                # Ensure "country" field is included
+                                general_info_entry['country'] = general_info_entry.get(
+                                    'country', 'missing')
                                 general_info.append(general_info_entry)
 
                             # Extract Track Information

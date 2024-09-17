@@ -1,18 +1,19 @@
 {
     "General Information": {
         "LP_ID": "LP 2705",
-        "Title": "ARPA\nGUARANI",
+        "Country": "Argentina",
+        "Title": "ARPA GUARANI",
         "Subtitle": null,
         "Performer": "An\u00edbal Sampayo",
-        "Publisher": "MICROFON ARGENTINA S.R.L.",
+        "Publisher": null,
         "Publishing Year": null,
         "Label Company": "MICROFON",
         "Label Number": "PROM 216",
         "Language": "Spanish",
-        "Recording Info": "impreso y confeccionado por FINKEL S.A.I.C. y A.",
-        "Genre/Style": "guarani",
+        "Recording Info": null,
+        "Genre/Style": null,
         "Notes": null,
-        "Other Information": null
+        "Other Information": "impreso y confeccionado por FINKEL S.A.I.C. y A.\nEDITADO Y DISTRIBUIDO POR: MICROFON ARGENTINA S.R.L."
     },
     "Track Info": [
         {

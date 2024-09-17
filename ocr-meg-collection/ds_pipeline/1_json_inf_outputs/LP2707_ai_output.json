@@ -1,8 +1,9 @@
 {
     "General Information": {
-        "LP_ID": "LP 272",
-        "Title": "le Nouveau\nchansonnier\nINTERNATIONAL\nLE CHA\nMONDE",
-        "Subtitle": "CANCIONES PARA MI AMERICA",
+        "LP_ID": "LP 2702",
+        "Country": "URUGUAY",
+        "Title": "CANCIONES PARA MI AMERICA",
+        "Subtitle": "le Nouveau chansonnier INTERNATIONAL",
         "Performer": "DANIEL VIGLIETTI",
         "Publisher": "GRAVURE UNIVERSELLE",
         "Publishing Year": null,
@@ -18,8 +19,8 @@
         {
             "Face": "A",
             "Track_Number": "1",
-            "Track_Name": "DALE TU MANO AL INDIO",
-            "Track_Composer": "(Cancion para mi Am\u00e9rica)",
+            "Track_Name": "DALE TU MANO AL INDIO (Cancion para mi Am\u00e9rica)",
+            "Track_Composer": null,
             "Track_Length": null
         },
         {
@@ -66,64 +67,29 @@
         },
         {
             "Face": "A",
-            "Track_Number": "8a",
-            "Track_Name": "REMONTANDO LOS RIOS",
-            "Track_Composer": null,
-            "Track_Length": null
-        },
-        {
-            "Face": "A",
-            "Track_Number": "8b",
-            "Track_Name": "MI PUEBLO",
+            "Track_Number": "8",
+            "Track_Name": "a) REMONTANDO LOS RIOS\nb) MI PUEBLO",
             "Track_Composer": null,
             "Track_Length": null
         },
         {
             "Face": "B",
-            "Track_Number": "1a",
-            "Track_Name": "ME MATAN SI NO TRABAJO",
+            "Track_Number": "1",
+            "Track_Name": "a) ME MATAN SI NO TRABAJO\nb) SOLDADO, APRENDE A TIRAR\nc) RONDA",
             "Track_Composer": null,
             "Track_Length": null
         },
         {
             "Face": "B",
-            "Track_Number": "1b",
-            "Track_Name": "SOLDADO, APRENDE A TIRAR",
+            "Track_Number": "2",
+            "Track_Name": "a) CANCIONES\nRemansos Remansillo - Variaci\u00f3n\n-\nCortaron tres arboles\nb) DOS BALADAS AMARILLAS",
             "Track_Composer": null,
             "Track_Length": null
         },
         {
             "Face": "B",
-            "Track_Number": "1c",
-            "Track_Name": "RONDA",
-            "Track_Composer": null,
-            "Track_Length": null
-        },
-        {
-            "Face": "B",
-            "Track_Number": "2a",
-            "Track_Name": "CANCIONES\nRemansos Remansillo - Variaci\u00f3n\n-\nCortaron tres arboles",
-            "Track_Composer": null,
-            "Track_Length": null
-        },
-        {
-            "Face": "B",
-            "Track_Number": "2b",
-            "Track_Name": "DOS BALADAS AMARILLAS",
-            "Track_Composer": null,
-            "Track_Length": null
-        },
-        {
-            "Face": "B",
-            "Track_Number": "3a",
-            "Track_Name": "MASA",
-            "Track_Composer": null,
-            "Track_Length": null
-        },
-        {
-            "Face": "B",
-            "Track_Number": "3b",
-            "Track_Name": "PEDRO ROJAS",
+            "Track_Number": "3",
+            "Track_Name": "a) MASA\nb) PEDRO ROJAS",
             "Track_Composer": null,
             "Track_Length": null
         }

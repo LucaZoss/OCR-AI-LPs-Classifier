@@ -3,7 +3,7 @@ A,1,LOS HERMANOS,Atahualpa Yupanqui,,LP2704,LP2704_1z1_A01.mp3,3'18
 A,2,DE LA BAILANTA,Washington Benavidez - Carlos Benavidez,,LP2704,LP2704_1z1_A02.mp3,2'59
 A,3,POBRE MARTIN,Georges Brassens,,LP2704,LP2704_1z1_A03.mp3,2'52
 A,4,CANCION DE NUESTRO TIEMPO,Ignacio Suárez - Yamandú Palacios,,LP2704,LP2704_1z1_A04.mp3,4'16
-A,5,EL GAVILAN (Venezuela),anonyme Vénézuélien,,LP2704,LP2704_1z1_A05.mp3,3'15
+A,5,EL GAVILAN,anonyme Vénézuélien,,LP2704,LP2704_1z1_A05.mp3,3'15
 B,1,DECIMAS POLITICAS,Yamandú Palacios,,LP2704,LP2704_1z1_B01.mp3,5'04
 B,2,CANCION PARA UN HOMBRE-NIÑO,Yamandú Palacios - Ignacio Suárez,,LP2704,LP2704_1z1_B02.mp3,2'55
 B,3,CANTO A UN COMPAÑEROCAIDO,Saúl Ibargoyen - Yamandú Palacios,,LP2704,LP2704_1z1_B03.mp3,3'28
@@ -31,45 +31,41 @@ B,3,QUE SERA DE TI,D Ortiz-M T Márquez,,LP2705,LP2705_1z1_B03.mp3,2'18
 B,4,PICAFLOR AZUL,Aníbal Sampayo,,LP2705,LP2705_1z1_B04.mp3,2'34
 B,5,QUISIERA DECIRTE,Neneco Norton-J Bernabé,,LP2705,LP2705_1z1_B05.mp3,2'31
 B,6,ESPERANZA MIA,Demetrio Ortiz,,LP2705,LP2705_1z1_B06.mp3,2'06
-A,1,DALE TU MANO AL INDIO,(Cancion para mi América),,LP2707,LP2707_1z1_A01.mp3,1'56
+A,1,DALE TU MANO AL INDIO (Cancion para mi América),,,LP2707,LP2707_1z1_A01.mp3,1'56
 A,2,A DESALAMBRAR !,,,LP2707,LP2707_1z1_A02.mp3,2'20
 A,3,DUERME NEGRITO,,,LP2707,LP2707_1z1_A03.mp3,2'38
 A,4,YO NACI EN JACINTO VERA,,,LP2707,LP2707_1z1_A04.mp3,1'54
 A,5,CRUZ DE LUZ,,,LP2707,LP2707_1z1_A05.mp3,2'18
 A,6,MILONGA DE ANDAR LEJOS,,,LP2707,LP2707_1z1_A06.mp3,3'05
 A,7,CANCION DEL HOMBRE NUEVO,,,LP2707,LP2707_1z1_A07.mp3,1'37
-A,8a,REMONTANDO LOS RIOS,,,LP2707,LP2707_1z1_A08.mp3,1'14
-A,8b,MI PUEBLO,,,LP2707,LP2707_1z1_A08.mp3,1'14
-B,1a,ME MATAN SI NO TRABAJO,,,LP2707,LP2707_1z1_B01.mp3,2'22
-B,1b,"SOLDADO, APRENDE A TIRAR",,,LP2707,LP2707_1z1_B01.mp3,2'22
-B,1c,RONDA,,,LP2707,LP2707_1z1_B01.mp3,2'22
-B,2a,"CANCIONES
+A,8,"a) REMONTANDO LOS RIOS
+b) MI PUEBLO",,,LP2707,LP2707_1z1_A08.mp3,1'14
+B,1,"a) ME MATAN SI NO TRABAJO
+b) SOLDADO, APRENDE A TIRAR
+c) RONDA",,,LP2707,LP2707_1z1_B01.mp3,2'22
+B,2,"a) CANCIONES
 Remansos Remansillo - Variación
 -
-Cortaron tres arboles",,,LP2707,LP2707_1z1_B02.mp3,1'48
-B,2b,DOS BALADAS AMARILLAS,,,LP2707,LP2707_1z1_B02.mp3,1'48
-B,3a,MASA,,,LP2707,LP2707_1z1_B03.mp3,1'24
-B,3b,PEDRO ROJAS,,,LP2707,LP2707_1z1_B03.mp3,1'24
-A,1.,"Eso es el carnaval - chant seul
-populaire",,1'57,LP2706,LP2706_1z1_A01.mp3,2'00
-A,2.,Concerto pour un été - fanfare,Alain Morisod,2'10,LP2706,LP2706_1z1_A02.mp3,2'00
-A,3.,"Chant
+Cortaron tres arboles
+b) DOS BALADAS AMARILLAS",,,LP2707,LP2707_1z1_B02.mp3,1'48
+B,3,"a) MASA
+b) PEDRO ROJAS",,,LP2707,LP2707_1z1_B03.mp3,1'24
+A,1,Eso es el carnaval,"chant seul
+populaire",1'57,LP2706,LP2706_1z1_A01.mp3,2'00
+A,2,Concerto pour un été - fanfare,Alain Morisod,2'10,LP2706,LP2706_1z1_A02.mp3,2'00
+A,3,"Chant avec rythmique
 (Pot-pourri)",,2'03,LP2706,LP2706_1z1_A03.mp3,2'41
-A,4.,"Llamadas
-(tambours)",,4'00,LP2706,LP2706_1z1_A04.mp3,4'24
-A,5.,Petite Fanfare,,2'05,LP2706,LP2706_1z1_A05.mp3,2'10
-A,6.,Orchestre,,1'12,LP2706,LP2706_1z1_A06.mp3,2'04
-B,1.,Murga,,1'54,LP2706,LP2706_1z1_B01.mp3,2'13
-B,2.,"Thème du film ""Le Parrain""",,2'35,LP2706,LP2706_1z1_B02.mp3,2'09
-B,3.,Chant avec rythmique,,2'50,LP2706,LP2706_1z1_B03.mp3,2'59
-B,4.,Llamadas,,4'19,LP2706,LP2706_1z1_B04.mp3,4'05
-B,5.,"Yo no se que me han hecho tus ojos
+A,4,Llamadas (tambours),,4'00,LP2706,LP2706_1z1_A04.mp3,4'24
+A,5,Petite Fanfare,,2'05,LP2706,LP2706_1z1_A05.mp3,2'10
+A,6,"Murga
+chant",,2'00,LP2706,LP2706_1z1_A06.mp3,2'04
+B,1,Murga,,1'54,LP2706,LP2706_1z1_B01.mp3,2'13
+B,2,"Thème du film ""Le Parrain""",,2'35,LP2706,LP2706_1z1_B02.mp3,2'09
+B,3,Chant,,2'50,LP2706,LP2706_1z1_B03.mp3,2'59
+B,4,Llamadas,,4'19,LP2706,LP2706_1z1_B04.mp3,4'05
+B,5,"Yo no se que me han hecho tus ojos
+(tambours)
 populaire",,2'20,LP2706,LP2706_1z1_B05.mp3,2'28
-B,6.,"Murga
-chant",,2'00,LP2706,LP2706_1z1_B06.mp3,1'18
-B,7.,"Murga
-rythmique",,1'50,LP2706,LP2706_1z1_B07.mp3,2'49
-B,8.,"Murga Rythmique (samba)
-(samba)
-La prohibition (chant + accordéon)
-populaire",,1'25,LP2706,LP2706_1z1_B08.mp3,1'32
+B,6,Orchestre,,1'12,LP2706,LP2706_1z1_B06.mp3,1'18
+B,7,Murga Rythmique (samba),,2'45,LP2706,LP2706_1z1_B07.mp3,2'49
+B,8,La prohibition (chant + accordéon),populaire,1'25,LP2706,LP2706_1z1_B08.mp3,1'32

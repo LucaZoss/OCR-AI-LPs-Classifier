@@ -39,12 +39,15 @@ def fetch_lp_covers_path(base_dir: str, lp_cote_general: str) -> list:
 ##### ORCHESTRATOR CLASS UTILS #####
 
 
+# utils.py file for the ocr-meg-collection package
+
+
 def fetch_track_duration(audio_file_path: str) -> str:
     """
-    This function fetches the track duration from the provided file path.
+    Fetches the track duration from the provided file path.
     """
     try:
-        audio = File(audio_file_path)  # using mutagen to get the audio file
+        audio = File(audio_file_path)  # Using mutagen to get the audio file
         duration_sec = audio.info.length
 
         # Format the duration as minutes and seconds with leading zeros for seconds
@@ -59,7 +62,7 @@ def fetch_track_duration(audio_file_path: str) -> str:
 
 def normalize_track_number(track_number):
     """
-    Normalize track numbers to a common format (e.g., '01').
+    Normalizes track numbers to a common format (e.g., '01').
     Removes non-digit characters and zero-pads to two digits.
     Handles cases where track_number is None or invalid.
     """
@@ -69,24 +72,26 @@ def normalize_track_number(track_number):
         return None
 
     # Extract digits from the track number and zero-pad to 2 digits
-    match = re.search(r'\d+', track_number)
+    match = re.search(r'\d+', str(track_number))
     normalized_number = match.group(0).zfill(2) if match else None
 
     logging.info(
         f"Normalized track number from '{track_number}' to '{normalized_number}'")
     return normalized_number
 
+# here we should add a logic that if no mapping is found, we should still return the file name and track length
+
 
 def map_tracks_to_audio_files(track_info, lp_base_dir):
     """
-    Function to map track names extracted from the AI output to the corresponding audio files.
+    Maps track names extracted from the AI output to the corresponding audio files.
+    If no exact match is found, it falls back to listing available file names and their track lengths.
     """
     audio_map = {}
 
     # Iterate through all track information
     for track in track_info:
-        lp_id = track.get('LP_ID')  # e.g., "LP2836"
-        # Correct path to the LP folder
+        lp_id = track.get('LP_ID')  # e.g., "LP1234"
         lp_folder = os.path.join(lp_base_dir, lp_id)
 
         if not os.path.isdir(lp_folder):
@@ -97,8 +102,8 @@ def map_tracks_to_audio_files(track_info, lp_base_dir):
         for root, _, files in os.walk(lp_folder):
             for file in files:
                 if file.endswith('.mp3'):
-                    # Extract the face and track number from the file name
-                    match = re.match(rf'{lp_id}_1z1_([AB])(\d+)', file)
+                    # Extract the face and track number from the file name using regex
+                    match = re.match(rf'{lp_id}_([AB])(\d+)\.mp3', file)
                     if match:
                         face = match.group(1)
                         # Normalize track number to two digits
@@ -107,9 +112,37 @@ def map_tracks_to_audio_files(track_info, lp_base_dir):
                         audio_map[(lp_id, face, track_number)] = file_path
                         logging.info(
                             f"Matched file: {file_path} for LP_ID: {lp_id}, Face: {face}, Track: {track_number}")
-                    else:
-                        logging.info(
-                            f"No match for file: {file} in folder: {lp_folder}")
+
+    # Ensure that every track in track_info has a mapped audio file
+    for track in track_info:
+        lp_id = track.get('LP_ID')
+        face = track.get('Face')
+        normalized_track_number = track.get('Normalized_Track_Number')
+
+        # Attempt to map each track to its corresponding audio file
+        if (lp_id, face, normalized_track_number) in audio_map:
+            # If an exact match is found, use it
+            file_path = audio_map[(lp_id, face, normalized_track_number)]
+            track['File_Name'] = os.path.basename(file_path)
+            track['Track_Length'] = fetch_track_duration(file_path)
+        else:
+            # Fallback: list all files if no exact match is found
+            fallback_audio_files = [f for f in os.listdir(
+                os.path.join(lp_base_dir, lp_id)) if f.endswith('.mp3')]
+
+            if fallback_audio_files:
+                # Use the first available file in the directory as a fallback
+                file_path = os.path.join(
+                    lp_base_dir, lp_id, fallback_audio_files[0])
+                track['File_Name'] = os.path.basename(file_path)
+                track['Track_Length'] = fetch_track_duration(file_path)
+                logging.info(f"No exact match found for {lp_id}, {face}, {normalized_track_number}. "
+                             f"Falling back to {file_path}.")
+            else:
+                # If no files are found, mark as missing
+                track['File_Name'] = 'missing'
+                track['Track_Length'] = 'missing'
+                logging.warning(f"No audio files found for LP_ID: {lp_id}")
 
     return audio_map
 

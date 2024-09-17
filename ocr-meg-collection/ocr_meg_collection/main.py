@@ -8,7 +8,7 @@ from ocr_meg_collection.ai_classification_inf import AIClassifier
 from ocr_meg_collection.post_processing import Orchestrator
 from ocr_meg_collection.utils import get_lp_subfolders
 
-# load_dotenv()
+load_dotenv()
 
 # Set the base directory where the LP subfolders reside, the path is in the .env file
 BASE_DIR = os.getenv("BASE_DIR")

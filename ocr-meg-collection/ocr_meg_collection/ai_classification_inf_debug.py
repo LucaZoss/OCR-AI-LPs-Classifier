@@ -88,27 +88,6 @@ class AIClassifier:
             logging.error("No JSON format found in the response.")
         return {}
 
-    def _clean_json_from_response(self, response_text: str) -> dict:
-        """
-        Extracts and cleans JSON data from the response text.
-
-        :param response_text: The response text containing JSON data.
-        :return: A dictionary containing the parsed JSON data.
-        """
-        try:
-            # Attempt to find the JSON part in the response text
-            json_start = response_text.find('{')
-            json_end = response_text.rfind('}') + 1
-            if json_start == -1 or json_end == -1:
-                logging.error("No JSON format found in the response.")
-                return {}
-
-            json_str = response_text[json_start:json_end]
-            return json.loads(json_str)
-        except json.JSONDecodeError as e:
-            logging.error(f"Error decoding JSON: {e}")
-            return {}
-
     def generate_inference(self, file_path: str):
         """
         Generates inferences from the combined OCR text using Vertex AI's Generative Model.
@@ -201,8 +180,7 @@ class AIClassifier:
             logging.info("Printed the LLM's raw response text.")
 
             # Extract JSON from response
-            json_data = self._clean_json_from_response(response_text)
-            # self._extract_json_from_response(response_text)
+            json_data = self._extract_json_from_response(response_text)
 
             # Save the extracted JSON to the target directory
             if json_data:

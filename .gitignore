@@ -1,6 +1,5 @@
-ds
+ds/
 ocr-meg-collection/notebooks
 __pycache__
 ocr-meg-collection/ds_pipeline
-ocr-meg-collection/.env
-.json
+.env

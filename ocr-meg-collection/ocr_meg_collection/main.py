@@ -16,20 +16,44 @@ BASE_DIR = os.getenv("BASE_DIR")
 print("Base Directory PATH for LP Processing", BASE_DIR)
 
 
-def run_ocr(base_dir: str, lps_to_process: int = all):
-    """_summary_
+def run_ocr(base_dir: str, lp_selection: str = "all"):
+    """
     Running the OCR Process on the LP covers.
-    base_dir (str): _description_
-    lps_to_process (int, optional): _description_. Defaults to all.
+
+    Args:
+        base_dir (str): Base directory containing LP subfolders.
+        lp_selection (str, optional): A string to specify which LPs to process.
+                                      Formats:
+                                        - "all": Process all LPs.
+                                        - "first-X" or "X": Process the first X LPs.
+                                        - "last-X": Process the last X LPs.
+                                        - "start-end": Process LPs from index start to end.
+                                      Defaults to "all".
     """
 
     # Get LPs List
     lp_subfolders_list = get_lp_subfolders(base_dir=base_dir)
 
-    if lps_to_process != all:
-        lp_list = lp_subfolders_list[:lps_to_process]
-    else:
+    # Determine LP selection based on lp_selection argument
+    if lp_selection == "all":
         lp_list = lp_subfolders_list
+    elif "last-" in lp_selection:
+        # Extract the number of LPs to select from the end
+        count = int(lp_selection.split("-")[1])
+        lp_list = lp_subfolders_list[-count:]
+    elif "first-" in lp_selection or lp_selection.isdigit():
+        # Handle "first-X" or just a digit to select the first X LPs
+        count = int(lp_selection.split(
+            "-")[1] if "first-" in lp_selection else lp_selection)
+        lp_list = lp_subfolders_list[:count]
+    elif "-" in lp_selection:
+        # Extract the start and end range from the lp_selection string
+        start, end = map(int, lp_selection.split("-"))
+        # Adjust for 0-based indexing
+        lp_list = lp_subfolders_list[start-1:end]
+    else:
+        raise ValueError(
+            "Invalid lp_selection format. Use 'all', 'first-X', 'X', 'last-X', or 'start-end'.")
 
     # Initialize the OCR pipeline
     ocr_pipeline = OCRPipeline(base_dir, lp_list)
@@ -44,7 +68,7 @@ def run_ocr(base_dir: str, lps_to_process: int = all):
 
 def run_ai_classification_inference():
     """
-    This function run the AI Classification Inference on the OCR Text.
+    This function runs the AI Classification Inference on the OCR Text.
     """
     classifier = AIClassifier()
 
@@ -58,7 +82,7 @@ def run_ai_classification_inference():
 
 def run_post_processing():
     """
-    Run the post-processing step to merge the JSON files into 2 different csv files.
+    Run the post-processing step to merge the JSON files into 2 different CSV files.
     """
     orchestrator = Orchestrator(lp_base_dir=BASE_DIR)
 
@@ -69,10 +93,10 @@ def run_post_processing():
     print(f"Post-processing completed in {end_time - start_time:.2f} seconds.")
 
 
-def main(lps_to_process: int = all):
+def main(lp_selection: str = "all"):
     global_start_time = time.time()
 
-    run_ocr(base_dir=BASE_DIR, lps_to_process=lps_to_process)
+    run_ocr(base_dir=BASE_DIR, lp_selection=lp_selection)
     run_ai_classification_inference()
     run_post_processing()
 
@@ -82,4 +106,5 @@ def main(lps_to_process: int = all):
 
 
 if __name__ == "__main__":
-    main(lps_to_process=1)
+    # Example: Change "all" to "5", "first-7", "last-20", "21-56" as needed
+    main(lp_selection="6-7")

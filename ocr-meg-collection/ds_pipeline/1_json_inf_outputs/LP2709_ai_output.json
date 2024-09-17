@@ -1,0 +1,104 @@
+{
+    "General Information": {
+        "LP_ID": "LP 2709",
+        "Country": "Argentina",
+        "Title": "BAILE DEL ANIVERSARIO",
+        "Subtitle": null,
+        "Performer": "LEONARDO MIRANDA",
+        "Publisher": "RCA",
+        "Publishing Year": null,
+        "Label Company": "CAMDEN",
+        "Label Number": "CAL-3237",
+        "Language": "Spanish",
+        "Recording Info": null,
+        "Genre/Style": null,
+        "Notes": "DE ESTE LONG PLAY HEMOS EDITADO EN SIMPLE:\nEl coniferal\nMarea del cumplea\u00f1os",
+        "Other Information": null
+    },
+    "Track Info": [
+        {
+            "Face": "A",
+            "Track_Number": "1",
+            "Track_Name": "EL CONIFERAL",
+            "Track_Composer": "Marea",
+            "Track_Length": "2.03"
+        },
+        {
+            "Face": "A",
+            "Track_Number": "2",
+            "Track_Name": "PAJARITO CANTOR",
+            "Track_Composer": "Taquirari de fuego",
+            "Track_Length": "2.10"
+        },
+        {
+            "Face": "A",
+            "Track_Number": "3",
+            "Track_Name": "CHOLA MODERNA",
+            "Track_Composer": "Marea",
+            "Track_Length": "2.30"
+        },
+        {
+            "Face": "A",
+            "Track_Number": "4",
+            "Track_Name": "MARIA INES",
+            "Track_Composer": "Marea lenta",
+            "Track_Length": "2.05"
+        },
+        {
+            "Face": "A",
+            "Track_Number": "5",
+            "Track_Name": "EL MAR DE PUJATO",
+            "Track_Composer": "Marea lenta",
+            "Track_Length": "2.10"
+        },
+        {
+            "Face": "A",
+            "Track_Number": "6",
+            "Track_Name": "SALTARIN",
+            "Track_Composer": "Marea lenta",
+            "Track_Length": "2.40"
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1",
+            "Track_Name": "PLATERITO",
+            "Track_Composer": "Taquirari de fuego",
+            "Track_Length": "1.45"
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2",
+            "Track_Name": "MAREA DEL CUMPLEA\u00d1OS",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3",
+            "Track_Name": "DE SAN JUAN",
+            "Track_Composer": "Taquirari de fuego",
+            "Track_Length": "2.05"
+        },
+        {
+            "Face": "B",
+            "Track_Number": "4",
+            "Track_Name": "AMOROSAS",
+            "Track_Composer": "Taquirari de fuego",
+            "Track_Length": "208"
+        },
+        {
+            "Face": "B",
+            "Track_Number": "5",
+            "Track_Name": "PARA VIGO ME VOY",
+            "Track_Composer": "Marea",
+            "Track_Length": "1:27"
+        },
+        {
+            "Face": "B",
+            "Track_Number": "6",
+            "Track_Name": "CARLOS PAZ",
+            "Track_Composer": "Taquirari",
+            "Track_Length": "1.26"
+        }
+    ]
+}

@@ -1,3 +1,4 @@
+# AI-Class
 import os
 import logging
 import json
@@ -36,6 +37,10 @@ class AIClassifier:
                                       'ocr-meg-collection', 'ds_pipeline', '0_raw_ocr_txt')
         self.TARGET_DIR = os.path.join(os.getcwd(),
                                        'ocr-meg-collection', 'ds_pipeline', '1_json_inf_outputs')
+
+        # Initialize Vertex AI
+        vertexai.init(project="lz-test-350609", location="us-central1")
+        logging.info("Initialized Vertex AI.")
 
     def _read_input_txt_file(self, file_path: str) -> str:
         """
@@ -91,13 +96,7 @@ class AIClassifier:
             combined_text = self._read_input_txt_file(file_path)
             pbar.update(1)  # Update progress bar after reading the file
 
-            # Step 2: Initialize Vertex AI
-            vertexai.init(project="lz-test-350609", location="us-central1")
-            logging.info("Initialized Vertex AI.")
-            pbar.update(1)  # Update progress bar after initializing Vertex AI
-
-            # Step 3: Define the system and user prompts and generate content
-            # Define the system and user prompts
+            # Step 2: Define the system and user prompts and generate content
             SYSTEM_PROMPT = """As an expert in document entity extraction,
             you parse txt documents to identify and organize specific entities
             from diverse sources into structured formats,
@@ -144,40 +143,40 @@ class AIClassifier:
             Text to Analyze:
             """
 
-        document = combined_text
+            document = combined_text
 
-        # Define generation configuration
-        generation_config = {
-            "max_output_tokens": 8192,
-            "temperature": 0.7,
-            "top_p": 0.95,
-        }
+            # Define generation configuration
+            generation_config = {
+                "max_output_tokens": 8192,
+                "temperature": 0.7,
+                "top_p": 0.95,
+            }
 
-        # Instantiate the generative model
-        model = GenerativeModel(
-            "gemini-1.5-pro-001",
-            system_instruction=SYSTEM_PROMPT
-        )
+            # Instantiate the generative model
+            model = GenerativeModel(
+                "gemini-1.5-pro-001",
+                system_instruction=SYSTEM_PROMPT
+            )
 
-        # Generate content using the model
-        responses = model.generate_content(
-            [USER_PROMPT, document],
-            generation_config=generation_config,
-            stream=True,
-        )
+            # Generate content using the model
+            responses = model.generate_content(
+                [USER_PROMPT, document],
+                generation_config=generation_config,
+                stream=True,
+            )
 
-        # Concatenate all response parts into a single string
-        response_text = "".join(response.text for response in responses)
+            # Concatenate all response parts into a single string
+            response_text = "".join(response.text for response in responses)
 
-        # Extract JSON from response
-        json_data = self._extract_json_from_response(response_text)
+            # Extract JSON from response
+            json_data = self._extract_json_from_response(response_text)
 
-        # Save the extracted JSON to the target directory
-        if json_data:
-            file_name = os.path.basename(file_path).replace(
-                "_combined.txt", "_ai_output.json")
-            self._save_json(json_data, file_name)
-        pbar.update(1)  # Update progress bar after saving the output
+            # Save the extracted JSON to the target directory
+            if json_data:
+                file_name = os.path.basename(file_path).replace(
+                    "_combined.txt", "_ai_output.json")
+                self._save_json(json_data, file_name)
+            pbar.update(1)  # Update progress bar after saving the output
 
     def batch_generate_inferences(self):
         """

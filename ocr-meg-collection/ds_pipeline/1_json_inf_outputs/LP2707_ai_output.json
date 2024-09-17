@@ -3,11 +3,11 @@
         "LP_ID": "LP 2702",
         "Country": "URUGUAY",
         "Title": "CANCIONES PARA MI AMERICA",
-        "Subtitle": "le Nouveau chansonnier INTERNATIONAL",
+        "Subtitle": "le Nouveau\nchansonnier\nINTERNATIONAL",
         "Performer": "DANIEL VIGLIETTI",
         "Publisher": "GRAVURE UNIVERSELLE",
         "Publishing Year": null,
-        "Label Company": "LE CHANTE DU MONDE",
+        "Label Company": "LE CHANTE\nDU MONDE",
         "Label Number": "LDX 7 4362",
         "Language": "Spanish",
         "Recording Info": null,
@@ -19,78 +19,78 @@
         {
             "Face": "A",
             "Track_Number": "1",
-            "Track_Name": "DALE TU MANO AL INDIO (Cancion para mi Am\u00e9rica)",
-            "Track_Composer": null,
+            "Track_Name": "DALE TU MANO AL INDIO",
+            "Track_Composer": "(Cancion para mi Am\u00e9rica)",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "2",
             "Track_Name": "A DESALAMBRAR !",
-            "Track_Composer": null,
+            "Track_Composer": "BRISONS LES CLOTURES!",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "3",
             "Track_Name": "DUERME NEGRITO",
-            "Track_Composer": null,
+            "Track_Composer": "DORS, PETIT NOIR",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "4",
             "Track_Name": "YO NACI EN JACINTO VERA",
-            "Track_Composer": null,
+            "Track_Composer": "JE SUIS NE A JACINTO VERA",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "5",
             "Track_Name": "CRUZ DE LUZ",
-            "Track_Composer": null,
+            "Track_Composer": "CROIX DE LUMIERE",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "6",
             "Track_Name": "MILONGA DE ANDAR LEJOS",
-            "Track_Composer": null,
+            "Track_Composer": "MILONGA DES TERRES LOINTAINES",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "7",
             "Track_Name": "CANCION DEL HOMBRE NUEVO",
-            "Track_Composer": null,
+            "Track_Composer": "CHANSON DE L'HOMME NOUVEAU",
             "Track_Length": null
         },
         {
             "Face": "A",
             "Track_Number": "8",
             "Track_Name": "a) REMONTANDO LOS RIOS\nb) MI PUEBLO",
-            "Track_Composer": null,
+            "Track_Composer": "a) EN REMONTANT LES FLEUVES\nb) MON PAYS",
             "Track_Length": null
         },
         {
             "Face": "B",
             "Track_Number": "1",
             "Track_Name": "a) ME MATAN SI NO TRABAJO\nb) SOLDADO, APRENDE A TIRAR\nc) RONDA",
-            "Track_Composer": null,
+            "Track_Composer": "a) ON ME TUE SI JE NE TRAVAILLE\nb) SOLDAT, APPRENDS A TIRER\nc) RONDE",
             "Track_Length": null
         },
         {
             "Face": "B",
             "Track_Number": "2",
             "Track_Name": "a) CANCIONES\nRemansos Remansillo - Variaci\u00f3n\n-\nCortaron tres arboles\nb) DOS BALADAS AMARILLAS",
-            "Track_Composer": null,
+            "Track_Composer": "a) CHANSONS\nEaux dormantes - Reflet - Variation\nOn a coup\u00e9 trois arbres.\nb) DEUX BALLADES JAUNES",
             "Track_Length": null
         },
         {
             "Face": "B",
             "Track_Number": "3",
             "Track_Name": "a) MASA\nb) PEDRO ROJAS",
-            "Track_Composer": null,
+            "Track_Composer": "a) LA MASSE\nb) PEDRO ROJAS",
             "Track_Length": null
         }
     ]

@@ -1,27 +1,19 @@
 {
     "General Information": {
         "LP_ID": "LP-1293",
-        "Country": "Peru",
-        "Title": "VERDAGUER... Prohibido en T. V.",
+        "Country": "PERU",
+        "Title": "VERDAGUER... \nprohibido en T. v.",
         "Subtitle": null,
-        "Performer": "Juan Verdaguer",
-        "Publisher": "Cholita",
+        "Performer": "JUAN VERDAGUER",
+        "Publisher": "CHOLITA",
         "Publishing Year": null,
-        "Label Company": "Cholita",
-        "Label Number": "BOL dl 12",
+        "Label Company": "Odeon",
+        "Label Number": "BOL dl\n12",
         "Language": "Spanish",
-        "Recording Info": "Recorded live in an undisclosed public location.",
+        "Recording Info": "La grabaci\u00f3n de este Primer Volumen de VERDAGUER fue realizada\nen un lugar p\u00fablico, estando captadas las reacciones naturales de los asis-\ntentes, para dar la sensaci\u00f3n de la presencia del fabuloso humorista en su\npropia sala.",
         "Genre/Style": "Humor",
-        "Notes": "This is the first volume of Verdaguer's repertoire. The recording captures the natural reactions of the audience, creating a live performance experience.",
-        "Other Information": "Verdaguer is a renowned Uruguayan humorist, popular in Latin America and Mexico for over a decade."
+        "Notes": "Con aut\u00e9ntica satisfacci\u00f3n Cholita presenta ahora en este L.P, al gran\nhumorista uruguayo JUAN VERDAGUER, uno de los m\u00e1s renombrados ar-\ntistas Latinoamericanos. La grata labor de Verdaguer ha tenido el reconoci-\nmiento de las m\u00e1s exigentes personalidades de nuestro mundo art\u00edstico, sien-\ndo desde hace m\u00e1s de una d\u00e9cada uno de los favoritos del p\u00fablico de M\u00e9xico.\nEn este disco VERDAGUER ha reunido sus m\u00e1s chispeante humo-\nradas, todas ellas llenas de un gran sentido c\u00f3mico, las cuales han de ser di-\ngeridas y reflexionadas, ya que cada una est\u00e1 elaborada con finura y calidad\npor lo cual desata la carcajada franca que hace pasar un aut\u00e9ntico momen-\nto feliz.",
+        "Other Information": "IDILIO MARINO"
     },
-    "Track Info": [
-        {
-            "Face": null,
-            "Track_Number": null,
-            "Track_Name": null,
-            "Track_Composer": null,
-            "Track_Length": null
-        }
-    ]
+    "Track Info": []
 }

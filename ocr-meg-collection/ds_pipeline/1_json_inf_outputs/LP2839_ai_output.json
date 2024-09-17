@@ -1,0 +1,104 @@
+{
+    "General Information": {
+        "LP_ID": "LP 28",
+        "Country": null,
+        "Title": "ESTA ES NUESTRA MUSICA",
+        "Subtitle": "VOL. 2",
+        "Performer": "GREGORIO PINTO",
+        "Publisher": null,
+        "Publishing Year": null,
+        "Label Company": "ALVAREZ",
+        "Label Number": "LPA-3013",
+        "Language": "Spanish",
+        "Recording Info": null,
+        "Genre/Style": null,
+        "Notes": "El Mejor Regalo es un Disco\n66\n\" ALVAREZ do\nDistribuye: \"CASA ALVAREZ\" San Mart\u00edn 6946 - Cochabamba",
+        "Other Information": null
+    },
+    "Track Info": [
+        {
+            "Face": "A",
+            "Track_Number": "1",
+            "Track_Name": "CLAVELES ROJOS",
+            "Track_Composer": "A. RUIZ G. ROJAS",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "2",
+            "Track_Name": "VIDITA MIA",
+            "Track_Composer": "RECOP. JOSE FERRUFINO",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "3",
+            "Track_Name": "DESDE QUE TE CONOCI",
+            "Track_Composer": "DPTO. DEL FOLKLORE",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "4",
+            "Track_Name": "STRONGEST",
+            "Track_Composer": "D. R.",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "5",
+            "Track_Name": "MI CONSTANCIA",
+            "Track_Composer": "DPTO. DEL FOLKLORE",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "6",
+            "Track_Name": "LAS PALMERAS",
+            "Track_Composer": "RECOP. G. ROJAS",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1",
+            "Track_Name": "HUERFANA VIRGINIA",
+            "Track_Composer": "SIMEON RONCAL",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2",
+            "Track_Name": "PU\u00d1AL ENVENENADO",
+            "Track_Composer": "DPTO. DEL FOLKLORE",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3",
+            "Track_Name": "HACE RATO",
+            "Track_Composer": "G. ROJAS",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "4",
+            "Track_Name": "LLORAR ETERNO",
+            "Track_Composer": "RECOP. LARREA TERAN",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "5",
+            "Track_Name": "EN LAS CONCAVIDADES",
+            "Track_Composer": "CARLOS MERUVIA",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "6",
+            "Track_Name": "HE VENIDO - Jueves de Carnaval -",
+            "Track_Composer": "LOS KURMIS",
+            "Track_Length": null
+        }
+    ]
+}

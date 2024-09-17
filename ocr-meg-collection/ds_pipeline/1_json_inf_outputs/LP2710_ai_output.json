@@ -1,0 +1,104 @@
+{
+    "General Information": {
+        "LP_ID": "LP 2710",
+        "Country": "Paraguay",
+        "Title": "FELIX\nPEREZ\nCARDOZO\nY SU ARPA MARAVILLOSA",
+        "Subtitle": null,
+        "Performer": "Felix Perez Cardozo",
+        "Publisher": "RCA",
+        "Publishing Year": null,
+        "Label Company": "CAMDEN",
+        "Label Number": "CAL-3195",
+        "Language": "Spanish",
+        "Recording Info": null,
+        "Genre/Style": "Musica Paraguaya",
+        "Notes": "con el Conjunto T\u00edpico Paraguayo",
+        "Other Information": null
+    },
+    "Track Info": [
+        {
+            "Face": "A",
+            "Track_Number": "1",
+            "Track_Name": "PUNTANITA",
+            "Track_Composer": "Canci\u00f3n",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "2",
+            "Track_Name": "LUI RYEVU",
+            "Track_Composer": "Galopa",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "3",
+            "Track_Name": "CHE PONCHO CHARAMI",
+            "Track_Composer": "Polka",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "4",
+            "Track_Name": "MISIONES",
+            "Track_Composer": "Galopa",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "5",
+            "Track_Name": "ANI REROVIA",
+            "Track_Composer": "Canci\u00f3n",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "6",
+            "Track_Name": "TAPERE",
+            "Track_Composer": "Canci\u00f3n",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1",
+            "Track_Name": "CA' AGUI RIACUA",
+            "Track_Composer": "Polka",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2",
+            "Track_Name": "ASUNCENA",
+            "Track_Composer": "Canci\u00f3n",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3",
+            "Track_Name": "MAITEIPA CHE IRU CUERA",
+            "Track_Composer": "Polka",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "4",
+            "Track_Name": "QUIOQUIO",
+            "Track_Composer": "Compuesto",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "5",
+            "Track_Name": "ISLA PUCU",
+            "Track_Composer": "Galopa",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "6",
+            "Track_Name": "YAJHA CHE NDIVE",
+            "Track_Composer": "Canci\u00f3n",
+            "Track_Length": null
+        }
+    ]
+}

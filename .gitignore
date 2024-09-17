@@ -1,3 +1,4 @@
 ds
 ocr-meg-collection/notebooks
 __pycache__
+.json

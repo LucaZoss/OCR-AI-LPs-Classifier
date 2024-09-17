@@ -1,39 +1,74 @@
-LP_ID,Title,Subtitle,Performer,Publisher,Publishing Year,Label Company,Label Number,Language,Recording Info,Genre/Style,Notes,Other Information
-LP2704,Canción de nuestro tiempo,,Yamandú Palacios,,1979,L'ESCARGOT,ESC 388,Spanish,,,"Textes traduits en Français par Marie-Josée VILAR
-Gravure Rolland MICHEL
-Photos: X
-Maquette Philippe FASSIER","LICENCE D.I.C.A.P.
-Tous Droits Réservés
-Sauf *Editions R.C.A.
-°Editions INTERSONG TUTTI
-CB 271
-SION
-65
-DISTRIBUTION C B S
-FÉVRIER MIL NEUF CENT SOIXANTE DIX-NEUF
-℗ 1975 L'ESCARGOT
-L'ESCARGOT marque déposée par SIBECAR
-FRANCE IMPRIMERIE, SOREL PRINTED IN FRANCE
-ABM
-88102 01
-/11 H
-18.-"
-LP2703,"Canción
-de nuestro
-tiempo",ALL'INTERNO LIBRETTO CON TESTI E NOTE,Yamandú Palacios,,,"I DISCHI
-DELLO ZODIACO","Z
-URUGUAY",Italian,,,,QUESTO DISCO E' REPERIBILE ANCHE IN CASSETTA VPA 8235
-LP2705,"ARPA
-GUARANI",,Aníbal Sampayo,MICROFON ARGENTINA S.R.L.,,MICROFON,PROM 216,Spanish,impreso y confeccionado por FINKEL S.A.I.C. y A.,guarani,,
-LP2707,"le Nouveau
-chansonnier
-INTERNATIONAL
-LE CHA
-MONDE",CANCIONES PARA MI AMERICA,DANIEL VIGLIETTI,GRAVURE UNIVERSELLE,,LE CHANTE DU MONDE,LDX 7 4362,Spanish,,,,
-LP2706,"CARNAVAL DE
+Front Cover:
+0
+LP 2706
+CARNAVAL DE
 MONTEVIDEO
-URUGUAY",,,,,"DISQUES
-EVASION",EB 100 514,French,Réalisation J.-P Tzaud (prise de son + texte),,"Vers la fin du 16° siècle, Montevideo était le plus impor-
+URUGUAY
+Back Cover:
+d6/00u!
+FACE A-
+1.
+Eso es el carnaval - chant seul
+1'57
+1.
+populaire
+Concerto pour un été - fanfare
+Alain Morisod
+TOTAL Fr.
+100 g/B-
+2'10
+2.
+Murga
+1'54
+3.
+Thème du film "Le Parrain"
+2'35
+4.
+Llamadas
+4'19
+23 15
+2.
+3. Chant
+Chant avec rythmique
+(Pot-pourri)
+2'03
+2'50
+4.
+Llamadas (tambours)
+4'00
+5.
+Yo no se que me han hecho tus ojos
+2'20
+(tambours)
+populaire
+5.
+Petite Fanfare
+2'05
+6.
+Murga
+chant
+2'00
+7.
+Murga
+rythmique
+1'50
+878
+6.
+Orchestre
+1'12
+7.
+Murga Rythmique (samba)
+2'45
+8.
+(samba)
+La prohibition (chant + accordéon)
+populaire
+1'25
+HISTOIRE
+Réalisation J.-P Tzaud (prise de son + texte)
+Photos: Maxence Quartier
+Montage Jacqueline Liardet
+Vers la fin du 16° siècle, Montevideo était le plus impor-
 tant port se trouvant à l'embouchure du Rio de la Plata. Les
 Espagnols y instaurèrent un trafic d'esclaves africains très
 important.
@@ -47,14 +82,14 @@ la première le samedi et dimanche avant le mercredi des
 Cendres : le défilé (officiel) des blancs, à tradition espagnole.
 Nous y trouvons quand même quelques noirs, qui apportent
 leur soutien à la rythmique, dans de petits groupes qui se
-nomment ""Murga"" (bande de musiciens ambulants).
+nomment "Murga" (bande de musiciens ambulants).
 Le vendredi après le mercredi des Cendres, c'est le
-défilé des ""Llamadas"" (trad. : appeler par tambour ses
+défilé des "Llamadas" (trad. : appeler par tambour ses
 membres pour le Carnaval). Ces groupes tous composés de
 noirs, défilent dans leur quartier, au son de tambours
 uniquement.
 Cette rythmique rappelle beaucoup l'Afrique et en
-particulier une danse nommée ""Semba de Candomble"" que
+particulier une danse nommée "Semba de Candomble" que
 nous retrouvons lors de cérémonies à caractère religieux
 (Vaudou) dans certains pays d'Amérique latine.
 Les tambours ont leur langage qui peut se définir par
@@ -63,8 +98,7 @@ il servait de moyen de communiquer entre différentes
 tribus et de dialoguer avec les Dieux.
 Le Carnaval de Montevideo est une manifestation
 populaire, qui a su garder l'authenticité de ses différentes
-origines.","Photos: Maxence Quartier
-Montage Jacqueline Liardet
+origines.
 INSTRUMENTS: (Llamada)-
 Il y a quatre types de tambours, qui correspondent aux
 quatre registres de la voix humaine.
@@ -86,5 +120,8 @@ rivée des Espagnols: la guitare, la mandoline, l'accordéon,
 le violon, etc., et de nos jours, nous trouvons toute la gamme
 d'instruments modernes.
 ONT PARU EGALEMENT:
+EVASION EB 100 514 CARNAVAL DE RIO
 EVASION EB 100 515 CARNAVAL DE L'ALTIPLANO (Pérou-Bolivie)
-EVASION EB 100 611 CARNAVAL DE BALE"
+EVASION EB 100 611 CARNAVAL DE BALE
+---70
+DISQUES

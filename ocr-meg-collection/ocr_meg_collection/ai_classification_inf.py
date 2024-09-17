@@ -107,14 +107,14 @@ class AIClassifier:
             USER_PROMPT = """You are a document entity extraction specialist. Given a document, your task is to extract the text value of the following entities and provide them in a structured JSON format:
             { \"General Information\":
                 {
-                    \"LP_ID\": \"\", // Extract the ID of the LP, always starts with \"LP\" followed by a 4-digit number.
+                    \"LP_ID\": \"\", // Extract the ID of the LP, **always** starts with \"LP\" followed by a 4-digit number.
                     \"Title\": \"\", // Extract the title of the LP, typically found on the front cover.
                     \"Subtitle\": \"\", // If present, extract the subtitle of the LP.
                     \"Performer\": \"\", // Extract the full names of the performers or music composer involved, separated by a semicolon if multiple.
                     \"Publisher\": \"\", // Extract the name of the publisher (company or organization responsible for the release).
                     \"Publishing Year\": \"\", // Identify the publishing year of the LP if mentioned.
                     \"Label Company\": \"\", // Extract the name of the label company.
-                    \"Label Number\": \"\", // Identify the unique label identifier, usually appearing after the label company\'s name.
+                    \"Label Number\": \"\", // Identify the unique label identifier, usually appearing after the label company\'s name and is always starting by 2 or 3 letters followed by numbers.
                     \"Language\": \"\", // Determine the language used in the text (e.g., Spanish).
                     \"Recording Info\": \"\", // Extract information about where or by whom the LP was recorded, if available.
                     \"Genre/Style\": \"\", // Determine the music genre of the album if mentioned, sometimes found in parentheses on the track name  often iberic/south american genres

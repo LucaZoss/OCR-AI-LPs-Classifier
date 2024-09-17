@@ -1,0 +1,89 @@
+{
+    "General Information": {
+        "LP_ID": "VPA 8235",
+        "Title": "Canci\u00f3n\nde nuestro\ntiempo",
+        "Subtitle": "ALL'INTERNO LIBRETTO CON TESTI E NOTE",
+        "Performer": "Yamand\u00fa Palacios",
+        "Publisher": null,
+        "Publishing Year": null,
+        "Label Company": "I DISCHI\nDELLO ZODIACO",
+        "Label Number": "Z\nURUGUAY",
+        "Language": "Italian",
+        "Recording Info": null,
+        "Genre/Style": null,
+        "Notes": null,
+        "Other Information": "QUESTO DISCO E' REPERIBILE ANCHE IN CASSETTA VPA 8235"
+    },
+    "Track Info": [
+        {
+            "Face": "A",
+            "Track_Number": "1",
+            "Track_Name": "LOS HERMANOS",
+            "Track_Composer": "(Atahualpa Yupanqui)",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "2",
+            "Track_Name": "DE LA BAILANTA",
+            "Track_Composer": "(Washington Benavidez-Carlos Benavidez)",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "3",
+            "Track_Name": "POBRE MARTIN",
+            "Track_Composer": "(George Brassens)",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "4",
+            "Track_Name": "CANCION DE NUESTRO TIEMPO",
+            "Track_Composer": "(Ignacio Su\u00e1rez-Yamand\u00fa Palacios)",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "5",
+            "Track_Name": "EL GAVILAN",
+            "Track_Composer": "(Anonimo venezuelano)",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1",
+            "Track_Name": "DECIMAS POLITICAS",
+            "Track_Composer": "(Yamand\u00fa Palacios)",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2",
+            "Track_Name": "CANCION PARA UN HOMBRE-NI\u00d1O",
+            "Track_Composer": "(Yamand\u00fa Palacios-Ignacio Su\u00e1rez)",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3",
+            "Track_Name": "CANTO A UN COMPA\u00d1ERO CAIDO",
+            "Track_Composer": "(Sa\u00fal Ibargoyen-Yamand\u00fa Palacios)",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "4",
+            "Track_Name": "COPLAS AL COMPADRE JUAN MIGUEL",
+            "Track_Composer": "(Yamand\u00fa Palacios-Oscar del Monte)",
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "5",
+            "Track_Name": "VEA PATRON",
+            "Track_Composer": "(An\u00edbal Sampayo)",
+            "Track_Length": null
+        }
+    ]
+}

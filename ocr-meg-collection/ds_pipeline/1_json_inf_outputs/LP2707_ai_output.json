@@ -1,0 +1,131 @@
+{
+    "General Information": {
+        "LP_ID": "LP 272",
+        "Title": "le Nouveau\nchansonnier\nINTERNATIONAL\nLE CHA\nMONDE",
+        "Subtitle": "CANCIONES PARA MI AMERICA",
+        "Performer": "DANIEL VIGLIETTI",
+        "Publisher": "GRAVURE UNIVERSELLE",
+        "Publishing Year": null,
+        "Label Company": "LE CHANTE DU MONDE",
+        "Label Number": "LDX 7 4362",
+        "Language": "Spanish",
+        "Recording Info": null,
+        "Genre/Style": null,
+        "Notes": null,
+        "Other Information": null
+    },
+    "Track Info": [
+        {
+            "Face": "A",
+            "Track_Number": "1",
+            "Track_Name": "DALE TU MANO AL INDIO",
+            "Track_Composer": "(Cancion para mi Am\u00e9rica)",
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "2",
+            "Track_Name": "A DESALAMBRAR !",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "3",
+            "Track_Name": "DUERME NEGRITO",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "4",
+            "Track_Name": "YO NACI EN JACINTO VERA",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "5",
+            "Track_Name": "CRUZ DE LUZ",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "6",
+            "Track_Name": "MILONGA DE ANDAR LEJOS",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "7",
+            "Track_Name": "CANCION DEL HOMBRE NUEVO",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "8a",
+            "Track_Name": "REMONTANDO LOS RIOS",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "A",
+            "Track_Number": "8b",
+            "Track_Name": "MI PUEBLO",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1a",
+            "Track_Name": "ME MATAN SI NO TRABAJO",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1b",
+            "Track_Name": "SOLDADO, APRENDE A TIRAR",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "1c",
+            "Track_Name": "RONDA",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2a",
+            "Track_Name": "CANCIONES\nRemansos Remansillo - Variaci\u00f3n\n-\nCortaron tres arboles",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "2b",
+            "Track_Name": "DOS BALADAS AMARILLAS",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3a",
+            "Track_Name": "MASA",
+            "Track_Composer": null,
+            "Track_Length": null
+        },
+        {
+            "Face": "B",
+            "Track_Number": "3b",
+            "Track_Name": "PEDRO ROJAS",
+            "Track_Composer": null,
+            "Track_Length": null
+        }
+    ]
+}

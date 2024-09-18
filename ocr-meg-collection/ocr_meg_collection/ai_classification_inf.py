@@ -35,12 +35,15 @@ class AIClassifier:
         self.max_workers = max_workers
         self.sleep_interval = sleep_interval
 
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
         # Set input and target directories
-        self.INPUT_DIR = os.path.join(os.getcwd(), 'ocr-meg-collection',
-                                      'ds_pipeline', '0_raw_ocr_txt')
+        self.INPUT_DIR = os.path.join(
+            script_dir, '..', 'ds_pipeline', '0_raw_ocr_txt')
         print("Input Directory for AI Classification:", self.INPUT_DIR)
-        self.TARGET_DIR = os.path.join(os.getcwd(), 'ocr-meg-collection',
-                                       'ds_pipeline', '1_json_inf_outputs')
+
+        self.TARGET_DIR = os.path.join(
+            script_dir, '..', 'ds_pipeline', '1_json_inf_outputs')
         print("Output Directory for AI Classification:", self.TARGET_DIR)
 
         # Initialize Vertex AI

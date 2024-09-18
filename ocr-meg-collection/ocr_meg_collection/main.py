@@ -6,12 +6,13 @@ from ocr_meg_collection.ocr_pipeline import OCRPipeline
 from ocr_meg_collection.ai_classification_inf import AIClassifier
 from ocr_meg_collection.post_processing import Orchestrator
 from ocr_meg_collection.utils import get_lp_subfolders
+from ocr_meg_collection.cleaner import Cleaner
 
 # Load environment variables
 load_dotenv()
 
 # Set the working directory to the script's location
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+# os.chdir(os.path.dirname(os.path.abspath(__file__)))
 print("Current working directory:", os.getcwd())
 
 # Set the base directory where the LP subfolders reside, the path is in the .env file
@@ -139,12 +140,31 @@ def run_post_processing():
     print(f"Post-processing completed in {end_time - start_time:.2f} seconds.")
 
 
+def run_cleaner():
+    """
+    Run Cleaner to clean and label the general and track info.
+    """
+    raw_csv_input = os.path.join(
+        os.getcwd(), 'ocr-meg-collection', 'ds_pipeline', '2_raw_csv')
+    clean_csv_output = os.path.join(
+        os.getcwd(), 'ocr-meg-collection', 'ds_pipeline', '3_clean_csv')
+
+    cleaner_instance = Cleaner(
+        input_dir=raw_csv_input, output_dir=clean_csv_output)
+    start_time = time.time()
+    print("Starting cleaning...")
+    cleaner_instance.run_cleaner()
+    end_time = time.time()
+    print(f"Cleaning completed in {end_time - start_time:.2f} seconds.")
+
+
 def main(lp_selection: str = "all"):
     global_start_time = time.time()
 
     run_ocr(base_dir=BASE_DIR, lp_selection=lp_selection)
     run_ai_classification_inference()
     run_post_processing()
+    run_cleaner()
 
     global_end_time = time.time()
     print(
@@ -155,4 +175,4 @@ if __name__ == "__main__":
     # Only print the list of LPs
     # print(get_lp_subfolders(base_dir=BASE_DIR))
     # Example: Change "all" to "5", "first-7", "last-20", "21-56" as needed
-    main(lp_selection="13-33")
+    main(lp_selection="37-37")

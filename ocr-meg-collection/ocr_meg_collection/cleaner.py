@@ -117,6 +117,7 @@ def clean_labeling_track(track_info_df):
 
 if __name__ == '__main__':
 
+    print("Cleaning and labeling general and track info...")
     general_info_raw_path = os.path.join(INPUT_DIR, 'general_info.csv')
     track_info_raw_path = os.path.join(INPUT_DIR, 'track_info.csv')
 
@@ -130,3 +131,4 @@ if __name__ == '__main__':
         OUTPUT_DIR, 'general_info_cleaned.csv'), index=False)
     track_info_cleaned.to_csv(os.path.join(
         OUTPUT_DIR, 'track_info_cleaned.csv'), index=False)
+    print("Cleaning and labeling completed.")

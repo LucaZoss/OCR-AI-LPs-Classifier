@@ -24,11 +24,20 @@ The first version of this application should be approached as a companion for la
 The core of the application hide in the ```ocr_meg_collection```folder, in which its architecture is settled as follows:
 
 1.ocr_meg_collecton --> Poetry Orchestration Environement
-|
-|_ ocr_pipeline.py // This script handles the OCR Job. At its core it uses Google Vision API.
-|_ ai_classification_inf.py // This script handles the AI inference using now Gemini-pro via Vertex AI API with a quotas per call raised to 10
-|_ post_processing
+```bash
+.
+├── __init__.py
+├── ai_classification_inf.py
+├── ai_classification_inf_debug.py
+├── cleaner.py
+├── main.py
+├── ocr_pipeline.py
+├── post_processing.py
+├── post_processing_debug.py
+└── utils.py
+```
 
+![Architecture_Image](architecture.png)
 
 **TO-DO**
 
@@ -41,3 +50,6 @@ The core of the application hide in the ```ocr_meg_collection```folder, in which
 ![Logo](MEG.jpg)
 
 
+
+
+[def]: ocr-meg-collection/architecture.png

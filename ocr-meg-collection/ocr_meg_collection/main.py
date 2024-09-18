@@ -1,19 +1,59 @@
 import os
 import time
-
+import re
 from dotenv import load_dotenv
-
 from ocr_meg_collection.ocr_pipeline import OCRPipeline
 from ocr_meg_collection.ai_classification_inf import AIClassifier
 from ocr_meg_collection.post_processing import Orchestrator
 from ocr_meg_collection.utils import get_lp_subfolders
 
+# Load environment variables
 load_dotenv()
+
+# Set the working directory to the script's location
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+print("Current working directory:", os.getcwd())
 
 # Set the base directory where the LP subfolders reside, the path is in the .env file
 BASE_DIR = os.getenv("BASE_DIR")
 
-print("Base Directory PATH for LP Processing", BASE_DIR)
+print("Base Directory PATH for LP Processing:", BASE_DIR)
+
+
+def natural_sort(lp_list):
+    """
+    Sorts the list of LP subfolders in natural order.
+
+    Args:
+        lp_list (list): List of LP subfolders.
+
+    Returns:
+        list: Sorted list of LP subfolders.
+    """
+    return sorted(lp_list, key=lambda x: int(re.search(r'\d+', x).group()))
+
+
+def get_lp_subfolders(base_dir):
+    """
+    Retrieves the LP subfolders from the specified base directory.
+
+    Args:
+        base_dir (str): The base directory where LP subfolders are located.
+
+    Returns:
+        list: Sorted list of LP subfolder names.
+    """
+    print(f"Base directory: {base_dir}")
+    try:
+        subfolders = [f.name for f in os.scandir(
+            base_dir) if f.is_dir() and f.name.startswith("LP")]
+        print(f"Filtered subfolder names: {subfolders}")
+        sorted_subfolders = natural_sort(subfolders)
+        print(f"Sorted subfolder names: {sorted_subfolders}")
+        return sorted_subfolders
+    except Exception as e:
+        print(f"Error while listing subfolders: {e}")
+        return []
 
 
 def run_ocr(base_dir: str, lp_selection: str = "all"):
@@ -30,26 +70,29 @@ def run_ocr(base_dir: str, lp_selection: str = "all"):
                                         - "start-end": Process LPs from index start to end.
                                       Defaults to "all".
     """
+    # Change to base directory and list subdirectories
+    original_dir = os.getcwd()  # Store original directory
+    os.chdir(base_dir)
+    lp_subfolders_list = [d for d in os.listdir(
+    ) if os.path.isdir(d) and d.startswith('LP')]
 
-    # Get LPs List
-    lp_subfolders_list = get_lp_subfolders(base_dir=base_dir)
+    # Sort LP subfolders in natural order
+    lp_subfolders_list = natural_sort(lp_subfolders_list)
 
     # Determine LP selection based on lp_selection argument
     if lp_selection == "all":
         lp_list = lp_subfolders_list
+
     elif "last-" in lp_selection:
-        # Extract the number of LPs to select from the end
         count = int(lp_selection.split("-")[1])
         lp_list = lp_subfolders_list[-count:]
+
     elif "first-" in lp_selection or lp_selection.isdigit():
-        # Handle "first-X" or just a digit to select the first X LPs
         count = int(lp_selection.split(
             "-")[1] if "first-" in lp_selection else lp_selection)
         lp_list = lp_subfolders_list[:count]
     elif "-" in lp_selection:
-        # Extract the start and end range from the lp_selection string
         start, end = map(int, lp_selection.split("-"))
-        # Adjust for 0-based indexing
         lp_list = lp_subfolders_list[start-1:end]
     else:
         raise ValueError(
@@ -64,6 +107,9 @@ def run_ocr(base_dir: str, lp_selection: str = "all"):
     ocr_pipeline.process_ocr()
     end_time = time.time()
     print(f"OCR processing completed in {end_time - start_time:.2f} seconds.")
+
+    # Revert back to the original directory
+    os.chdir(original_dir)
 
 
 def run_ai_classification_inference():
@@ -106,5 +152,7 @@ def main(lp_selection: str = "all"):
 
 
 if __name__ == "__main__":
+    # Only print the list of LPs
+    # print(get_lp_subfolders(base_dir=BASE_DIR))
     # Example: Change "all" to "5", "first-7", "last-20", "21-56" as needed
-    main(lp_selection="2-22")
+    main(lp_selection="11-12")

@@ -3,3 +3,4 @@ ocr-meg-collection/notebooks
 __pycache__
 ocr-meg-collection/ds_pipeline
 .env
+.ipynb

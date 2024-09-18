@@ -5,7 +5,7 @@ import json
 import re
 import time
 import vertexai
-from vertexai.generative_models import GenerativeModel
+from vertexai.generative_models import GenerativeModel, SafetySetting
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm  # Import tqdm for progress bars
@@ -36,10 +36,12 @@ class AIClassifier:
         self.sleep_interval = sleep_interval
 
         # Set input and target directories
-        self.INPUT_DIR = os.path.join(os.getcwd(),
-                                      'ocr-meg-collection', 'ds_pipeline', '0_raw_ocr_txt')
-        self.TARGET_DIR = os.path.join(os.getcwd(),
-                                       'ocr-meg-collection', 'ds_pipeline', '1_json_inf_outputs')
+        self.INPUT_DIR = os.path.join(os.getcwd(), 'ocr-meg-collection',
+                                      'ds_pipeline', '0_raw_ocr_txt')
+        print("Input Directory for AI Classification:", self.INPUT_DIR)
+        self.TARGET_DIR = os.path.join(os.getcwd(), 'ocr-meg-collection',
+                                       'ds_pipeline', '1_json_inf_outputs')
+        print("Output Directory for AI Classification:", self.TARGET_DIR)
 
         # Initialize Vertex AI
         vertexai.init(project="lz-test-350609", location="us-central1")
@@ -177,12 +179,32 @@ class AIClassifier:
                 "top_p": 0.95,
                 "response_mime_type": "application/json",
             }
+            # Define custom safety settings
+            safety_settings = [
+                SafetySetting(
+                    category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                    threshold=SafetySetting.HarmBlockThreshold.BLOCK_ONLY_HIGH
+                ),
+                SafetySetting(
+                    category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                    threshold=SafetySetting.HarmBlockThreshold.BLOCK_ONLY_HIGH
+                ),
+                SafetySetting(
+                    category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                    threshold=SafetySetting.HarmBlockThreshold.BLOCK_ONLY_HIGH
+                ),
+                SafetySetting(
+                    category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,
+                    threshold=SafetySetting.HarmBlockThreshold.BLOCK_ONLY_HIGH
+                ),
+            ]
 
             # Instantiate the generative model
             model = GenerativeModel(
                 "gemini-1.5-pro-001",
                 generation_config=generation_config,
-                system_instruction=SYSTEM_PROMPT
+                system_instruction=SYSTEM_PROMPT,
+                safety_settings=safety_settings  # No safety settings for now
             )
 
             # Generate content using the model
@@ -190,15 +212,16 @@ class AIClassifier:
                 [USER_PROMPT, document],
                 # generation_config=generation_config,
                 stream=True,
+
             )
 
             # Concatenate all response parts into a single string
             response_text = "".join(response.text for response in responses)
 
             # **Print the LLM's Raw Response Text**
-            print("LLM Raw Response Text:")
-            print(response_text)
-            logging.info("Printed the LLM's raw response text.")
+            # print("LLM Raw Response Text:")
+            # print(response_text)
+            # logging.info("Printed the LLM's raw response text.")
 
             # Extract JSON from response
             json_data = self._clean_json_from_response(response_text)

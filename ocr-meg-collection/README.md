@@ -19,9 +19,15 @@ The initial situation was to do this work manually, making on average from 8 to 
 
 💿 **Version 1**
 
-The 
+The first version of this application should be approached as a companion for labelling the LPs, therefore a manual process of double checking and editing should be done manually. In future version, we could imagine to switch to a more agentic-based methodology plugin some API such as DISCOGS or event Google Search?
 
-The first 
+The core of the application hide in the ```ocr_meg_collection```folder, in which its architecture is settled as follows:
+
+1.ocr_meg_collecton --> Poetry Orchestration Environement
+|
+|_ ocr_pipeline.py // This script handles the OCR Job. At its core it uses Google Vision API.
+|_ ai_classification_inf.py // This script handles the AI inference using now Gemini-pro via Vertex AI API with a quotas per call raised to 10
+|_ post_processing
 
 
 **TO-DO**

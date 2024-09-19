@@ -142,7 +142,7 @@ def extract_information_from_text(file_path: str):
 
 if __name__ == "__main__":
     # Path to the combined.txt file
-    combined_text_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
+    combined_text_path = "OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
 
     # Extract information from text
     extract_information_from_text(combined_text_path)

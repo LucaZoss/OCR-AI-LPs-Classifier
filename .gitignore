@@ -4,3 +4,4 @@ __pycache__
 ocr-meg-collection/ds_pipeline
 .env
 .ipynb
+.vscode/

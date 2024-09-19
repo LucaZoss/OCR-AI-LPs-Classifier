@@ -16,7 +16,7 @@ def read_combined_text(file_path: str) -> str:
 
 
 def query_gpt4o(system_prompt: str, prompt: str):
-    api_key = "sk-7mFl0kHX0-EheoipR2JzGLEnPTFsiACZ_t1O_fd3TpT3BlbkFJk0uEfZNLfvwTPYq6NkLet7Q_vvz43SB9FRsZer7vYA"
+    api_key = #put secret key
 
     client = OpenAI(
         # This is the default and can be omitted

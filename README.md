@@ -95,6 +95,7 @@ Another limitation is that when running the script locally, there's some latency
 
     ```
     GOOGLE_APPLICATION_CREDENTIALS=path/to/your/google-cloud-credentials.json
+    GOOGLE_PROJECT_ID=your-gcp-project-id
     BASE_DIRECTORY=path/to/your/LPs/directory
     ```
 

@@ -16,7 +16,7 @@ def read_combined_text(file_path: str) -> str:
 
 
 def query_gpt4o(system_prompt: str, prompt: str):
-    api_key = #put secret key
+    api_key = "sk"  # put secret key
 
     client = OpenAI(
         # This is the default and can be omitted
@@ -150,7 +150,7 @@ You are an intelligent assistant tasked with extracting structured information f
 if __name__ == "__main__":
     # Path to the combined.txt file
     # "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/extracted_text/20240906_131209_combined.txt"
-    combined_text_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
+    combined_text_path = "DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ocr-meg-collection/ds_pipeline/0_raw_ocr_txt/LP2836_combined.txt"
 
     # Extract information from text
     model_output = extract_information_from_text(combined_text_path)

@@ -26,7 +26,7 @@ def generate(file_path: str):
     combined_text = read_combined_text(file_path)
 
     # Initialize Vertex AI
-    vertexai.init(project="lz-test-350609", location="us-central1")
+    vertexai.init(project="project-id", location="us-central1")
 
     # Define the system and user prompts
     SYSTEM_PROMPT = """As an expert in document entity extraction, you parse txt documents to identify and organize specific entities from diverse sources into structured formats, following detailed guidelines for clarity and completeness."""

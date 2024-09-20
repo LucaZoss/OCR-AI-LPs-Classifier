@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
 
-image_path = "/Users/lucazosso/Desktop/Luca_Sandbox_Env/DATA_MEG_PROJ/OCR-AI-Vinyl-Classification/ds/test/20240906_131214.jpg"
+image_path = "20240906_131214.jpg"
 
 # Read the image from which text needs to be extracted
 img = cv2.imread(image_path)

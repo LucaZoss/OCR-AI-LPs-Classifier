@@ -20,6 +20,8 @@ load_dotenv()
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv(
     "GOOGLE_APPLICATION_CREDENTIALS")
 
+GOOGLE_PROJECT_ID = os.getenv("GOOGLE_PROJECT_ID")
+
 print("Google Service Account JSON File Creds Loaded Successfully for VERTEXAI INFERENCE")
 
 
@@ -47,7 +49,7 @@ class AIClassifier:
         print("Output Directory for AI Classification:", self.TARGET_DIR)
 
         # Initialize Vertex AI
-        vertexai.init(project="lz-test-350609", location="us-central1")
+        vertexai.init(project=GOOGLE_PROJECT_ID, location="us-central1")
         logging.info("Initialized Vertex AI.")
 
     def _read_input_txt_file(self, file_path: str) -> str:

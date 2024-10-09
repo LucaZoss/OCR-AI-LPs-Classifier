@@ -5,3 +5,4 @@ ocr-meg-collection/ds_pipeline
 .env
 .ipynb
 .vscode/
+ocr-meg-collection/tests/bytes_hardrive_weights.py
